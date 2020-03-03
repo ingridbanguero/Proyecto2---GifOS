@@ -21,63 +21,58 @@ body {
         letter-spacing: 0;
         font-weight: 400; }
     body header .menu {
+      margin-top: 44px;
+      margin-right: 6.33vw;
+      margin-left: 6.33vw;
       display: flex;
-      margin: 39px 6.33vw 39px;
-      justify-content: space-between; }
-      body header .menu img {
+      justify-content: space-between;
+      align-items: center; }
+      body header .menu .img_menu {
         width: 102.6px;
         height: 64px; }
-      body header .menu nav input {
-        display: none; }
       body header .menu nav ul {
-        display: flex; }
+        display: flex;
+        list-style: none; }
         body header .menu nav ul li {
-          list-style: none; }
-          body header .menu nav ul li .lista {
+          padding: 9px; }
+          body header .menu nav ul li a {
+            text-decoration: none;
             font-size: 16px;
             color: #110038;
             letter-spacing: 0;
             text-align: center;
-            line-height: 18px;
-            margin: 8px;
-            text-decoration: none;
-            padding: 9px 26.5px; }
-          body header .menu nav ul li .boton {
-            background-color: #F7C9F3;
-            border: 1px solid #110038;
-            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF; }
-            body header .menu nav ul li .boton img {
-              width: 10px;
-              height: 6px; }
-          body header .menu nav ul li .icon {
-            padding: 9px 10px;
-            margin: -10px; }
-        body header .menu nav ul .contenedor_temas {
-          display: flex;
-          flex-direction: column; }
-          body header .menu nav ul .contenedor_temas .titulo_tema {
+            line-height: 18px; }
+          body header .menu nav ul li .sub_menu {
+            margin-top: 10px;
             display: flex;
-            margin-bottom: 10px;
-            margin-left: 0px; }
-          body header .menu nav ul .contenedor_temas .opciones_temas {
+            flex-direction: column;
+            padding: 0;
+            line-height: 22px;
             background: #E6E6E6;
-            box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-            padding: 10px; }
-            body header .menu nav ul .contenedor_temas .opciones_temas ul {
-              display: flex;
-              flex-direction: column;
-              padding: 0; }
-              body header .menu nav ul .contenedor_temas .opciones_temas ul li {
-                background: #FFF4FD;
-                border: 1px solid #CCA6C9;
-                box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
-                font-size: 16px;
-                color: #110038;
-                letter-spacing: 0;
-                line-height: 22px;
-                padding: 7px 16px;
-                text-decoration: none;
-                margin: 7px; }
+            box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF; }
+            body header .menu nav ul li .sub_menu li button {
+              font-size: 16px;
+              color: #110038;
+              letter-spacing: 0;
+              line-height: 22px;
+              padding: 7px 16px; }
+            body header .menu nav ul li .sub_menu li .day {
+              background: #FFF4FD;
+              border: 1px solid #CCA6C9;
+              box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF; }
+            body header .menu nav ul li .sub_menu li .night {
+              background: #F0F0F0;
+              border: 1px solid #808080;
+              box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF; }
+        body header .menu nav ul .boton {
+          margin-left: 0;
+          padding: 9px 24px;
+          background: #F7C9F3;
+          border: 1px solid #110038;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF; }
+        body header .menu nav ul .icon {
+          padding: 9px 15px;
+          margin-left: -19px; }
     body header .buscador {
       margin-right: 6.33vw;
       margin-left: 6.33vw;

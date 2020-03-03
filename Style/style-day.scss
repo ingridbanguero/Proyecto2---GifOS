@@ -36,78 +36,71 @@ body {
             }
         }
         /*Menu*/
-        .menu {
+        .menu{
+            margin-top: 44px;
+            margin-right: 6.33vw;
+            margin-left: 6.33vw;
             display: flex;
-            margin: 39px 6.33vw 39px;
             justify-content: space-between;
-            img{
+            align-items: center;
+            .img_menu {
                 width: 102.6px;
                 height: 64px;
             }
-            nav {
-                input {
-                    display: none;
-                }
+            nav{
                 ul{
                     display: flex;
-                    li{
-                        list-style: none;
-                        .lista {
+                    list-style: none;
+                    li  {
+                        padding: 9px;
+                        a{
+                            text-decoration: none;
                             font-size: 16px;
                             color: $color-texto2;
                             letter-spacing: 0;
                             text-align: center;
                             line-height: 18px;
-                            margin: 8px;
-                            text-decoration: none;
-                            padding: 9px 26.5px;
-                        }
-                        .boton {
-                            background-color: $color-boton;
-                            border: 1px solid $color-texto2;
-                            box-shadow: inset -1px -1px 0 0 $color-shadow-morado, inset 1px 1px 0 0 $color-shadow-blanco;
-                            img {
-                                width: 10px;
-                                height: 6px;
-                            }
-                        }
-                        .icon {
-                            padding: 9px 10px;
-                            margin: -10px;
-                        }
-                    }
-                    .contenedor_temas{
-                        display: flex;
-                        flex-direction: column;
 
-                        .titulo_tema{
-                            display: flex;
-                            margin-bottom: 10px;
-                            margin-left: 0px;
                         }
-                        .opciones_temas{
+                        .sub_menu{
+                            margin-top: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 0;
+                            line-height: 22px;
                             background: #E6E6E6;
                             box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-                            padding: 10px;
-                            ul{
-                                display: flex;
-                                flex-direction: column;
-                                padding: 0;
-                                li{
+                            li{
+                                button{
+                                    font-size: 16px;
+                                    color: $color-texto2;
+                                    letter-spacing: 0;
+                                    line-height: 22px;
+                                    padding: 7px 16px; 
+                                }
+                                .day{
                                     background: #FFF4FD;
                                     border: 1px solid #CCA6C9;
                                     box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
-                                    font-size: 16px;
-                                    color: #110038;
-                                    letter-spacing: 0;
-                                    line-height: 22px;
-                                    padding: 7px 16px;
-                                    text-decoration: none;
-                                    margin: 7px;
-                                    
+                                }
+                                .night{
+                                    background: #F0F0F0;
+                                    border: 1px solid #808080;
+                                    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
                                 }
                             }
                         }
+                    }
+                    .boton{
+                        margin-left: 0;
+                        padding: 9px 24px;
+                        background: #F7C9F3;
+                        border: 1px solid #110038;
+                        box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+                    }
+                    .icon{
+                        padding: 9px 15px;
+                        margin-left: -19px;
                     }
                 }
             }
