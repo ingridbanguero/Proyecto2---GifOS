@@ -1,0 +1,246 @@
+$color-fondo: #FFF4FD;
+$color-texto1: #FFFFFF;
+$color-texto2: #110038;
+$color-gradiente: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+$color-borde: #E6BBE2 ;
+$color-boton: #F7C9F3;
+$color-shadow-azul: #110038;
+$color-shadow-blanco: #FFFFFF;
+$color-shadow-morado: #997D97;
+$color-shadow-gris: #B4B4B4;
+$color-fondo-buscador: #E6E6E6;
+$fuente-texto: 'Chakra Petch', sans-serif;
+
+
+body {
+    background-color: $color-fondo;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: $fuente-texto;
+    /*Encabezado*/
+    header {
+        .encabezado {
+            margin: 1px;
+            background-image: $color-gradiente;
+            box-shadow: 0 1px 0 0 $color-shadow-azul;
+            h1{
+                margin: 0;
+                padding-left: 7px;
+                padding-top: 3px;
+                padding-bottom: 4px;
+                font-size: 12px;
+                color: $color-texto1;
+                letter-spacing: 0;
+                font-weight: 400;
+            }
+        }
+        /*Menu*/
+        .menu {
+            display: flex;
+            margin: 39px 6.33vw 39px;
+            justify-content: space-between;
+            img{
+                width: 102.6px;
+                height: 64px;
+            }
+            nav {
+                input {
+                    display: none;
+                }
+                ul{
+                    display: flex;
+                    li{
+                        list-style: none;
+                        .lista {
+                            font-size: 16px;
+                            color: $color-texto2;
+                            letter-spacing: 0;
+                            text-align: center;
+                            line-height: 18px;
+                            margin: 8px;
+                            text-decoration: none;
+                            padding: 9px 26.5px;
+                        }
+                        .boton {
+                            background-color: $color-boton;
+                            border: 1px solid $color-texto2;
+                            box-shadow: inset -1px -1px 0 0 $color-shadow-morado, inset 1px 1px 0 0 $color-shadow-blanco;
+                            img {
+                                width: 10px;
+                                height: 6px;
+                            }
+                        }
+                        .icon {
+                            padding: 9px 10px;
+                            margin: -10px;
+                        }
+                    }
+                    .contenedor_temas{
+                        display: flex;
+                        flex-direction: column;
+
+                        .titulo_tema{
+                            display: flex;
+                            margin-bottom: 10px;
+                            margin-left: 0px;
+                        }
+                        .opciones_temas{
+                            background: #E6E6E6;
+                            box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+                            padding: 10px;
+                            ul{
+                                display: flex;
+                                flex-direction: column;
+                                padding: 0;
+                                li{
+                                    background: #FFF4FD;
+                                    border: 1px solid #CCA6C9;
+                                    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+                                    font-size: 16px;
+                                    color: #110038;
+                                    letter-spacing: 0;
+                                    line-height: 22px;
+                                    padding: 7px 16px;
+                                    text-decoration: none;
+                                    margin: 7px;
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .buscador {
+            margin-right: 6.33vw;
+            margin-left: 6.33vw;
+            background: $color-fondo-buscador;
+            box-shadow: inset -2px -2px 0 0 $color-shadow-gris, inset 2px 2px 0 0 $color-shadow-blanco;
+            p {
+                position: relative;
+                top: 1px;
+                margin: 3px;
+                padding: 3px;
+                background-image: $color-gradiente;
+                font-size: 14px;
+                font-weight: 700;
+                color: $color-texto1;
+                letter-spacing: 0;
+            }
+            .contenedor_buscador {
+                display: flex;
+                align-items: center;
+                margin-right: 15px;
+                input {
+                    font-family: $fuente-texto;
+                    width: 94%;
+                    font-size: 16px;
+                    color: $color-shadow-gris;
+                    letter-spacing: 0;
+                    line-height: 22px;
+                    padding: 13px 16px;
+                    margin: 12px 15px;
+                    background: #FFFFFF;
+                    border: 1px solid #797979;
+                    box-shadow: inset -2px -2px 0 0 $color-fondo-buscador, inset 2px 2px 0 0 #000000; 
+                }
+                button{
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    font-size: 16px;
+                    color: #B4B4B4;
+                    letter-spacing: 0;
+                    line-height: 18px;
+                    width: 100px;
+                    height: 36px;
+                    
+                    img {
+                        width: 18%;
+                    }
+                }
+            }
+ 
+        }
+    }
+    .seccion {
+        margin-top: 64px;
+        margin-right: 6.33vw;
+        margin-left: 6.33vw;
+        .titulo {
+            padding: 7px;
+            font-family: $fuente-texto;
+            font-size: 12px;
+            color: $color-texto2;
+            letter-spacing: 0;
+            background: #FFFAFE;
+            border: 1px solid #E6BBE2;
+            box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D; 
+            h2 {
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+        .contenedor_sugerencias{
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            .sugerencia {
+                width: 24%;
+                background: #E6E6E6;
+                padding: 1px;
+                box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+                .titulo_sugerencia {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-image: $color-gradiente;
+                    font-family: $fuente-texto;
+                    font-size: 14px;
+                    color: #FFFFFF;
+                    letter-spacing: 0;
+                    padding: 3px;
+                    margin: 1px;
+                    button {
+                        padding: 0;
+                        height: 15px;
+                    }
+                    h3 {
+                        margin: 0;
+                    }
+                }
+                .imagen_sugerencia{
+                    height: 250px;
+                    margin-top: 2px;
+                    a {
+                        font-size: 14px;
+                        color: $color-texto1;
+                        letter-spacing: 0;
+                        text-align: center;
+                        line-height: 18px;
+                        background: #4180F6;
+                        border: 1px solid #4C2F99;
+                        box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+                        text-decoration: none;
+                        padding: 8px 10px;
+                        position: relative;
+                        top: 85%;
+                        left: 7px;
+                        
+                    }
+                }
+            }
+        }
+        .contenedor_tendencias{
+            margin-top: 16px;
+            .tendencia{
+                width: 24%;
+                background: #E6E6E6;
+                box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+
+            }
+        }
+    }
+
+}
