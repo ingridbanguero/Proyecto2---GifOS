@@ -24,6 +24,7 @@ body {
       margin-top: 44px;
       margin-right: 6.33vw;
       margin-left: 6.33vw;
+      margin-bottom: 19px;
       display: flex;
       justify-content: space-between;
       align-items: center; }
@@ -35,6 +36,8 @@ body {
         list-style: none; }
         body header .menu nav ul li {
           padding: 9px; }
+          body header .menu nav ul li ul {
+            display: none; }
           body header .menu nav ul li a {
             text-decoration: none;
             font-size: 16px;
@@ -43,36 +46,53 @@ body {
             text-align: center;
             line-height: 18px; }
           body header .menu nav ul li .sub_menu {
+            position: absolute;
+            z-index: 3;
             margin-top: 10px;
-            display: flex;
-            flex-direction: column;
+            display: block;
+            /*Ponerle el display block para el active */
             padding: 0;
             line-height: 22px;
             background: #E6E6E6;
             box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF; }
-            body header .menu nav ul li .sub_menu li button {
-              font-size: 16px;
-              color: #110038;
-              letter-spacing: 0;
-              line-height: 22px;
-              padding: 7px 16px; }
-            body header .menu nav ul li .sub_menu li .day {
-              background: #FFF4FD;
-              border: 1px solid #CCA6C9;
-              box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF; }
-            body header .menu nav ul li .sub_menu li .night {
-              background: #F0F0F0;
-              border: 1px solid #808080;
-              box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF; }
+            body header .menu nav ul li .sub_menu li {
+              padding: 0; }
+              body header .menu nav ul li .sub_menu li button {
+                font-size: 16px;
+                color: #110038;
+                letter-spacing: 0;
+                line-height: 22px;
+                width: 90%;
+                margin: 10px; }
+              body header .menu nav ul li .sub_menu li .day {
+                margin-bottom: 5px;
+                padding: 7px 60px 7px 16px;
+                background: #FFF4FD;
+                border: 1px solid #CCA6C9;
+                box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF; }
+              body header .menu nav ul li .sub_menu li .night {
+                margin-top: 5px;
+                padding: 7px 49px 7px 16px;
+                background: #F0F0F0;
+                border: 1px solid #808080;
+                box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF; }
         body header .menu nav ul .boton {
           margin-left: 0;
           padding: 9px 24px;
           background: #F7C9F3;
           border: 1px solid #110038;
           box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF; }
+        body header .menu nav ul .boton:hover {
+          border: 1px dotted #110038; }
+        body header .menu nav ul .boton:active ~ .sub_menu {
+          display: block; }
         body header .menu nav ul .icon {
           padding: 9px 15px;
-          margin-left: -19px; }
+          margin-left: -26px; }
+        body header .menu nav ul .mis_guifos:hover {
+          border: 1px dotted #110038; }
+        body header .menu nav ul .mis_guifos:active {
+          color: #110038; }
     body header .buscador {
       margin-right: 6.33vw;
       margin-left: 6.33vw;
@@ -128,7 +148,7 @@ body {
       letter-spacing: 0;
       background: #FFFAFE;
       border: 1px solid #E6BBE2;
-      box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D; }
+      box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #997D97; }
       body .seccion .titulo h2 {
         margin: 0;
         font-weight: 400; }

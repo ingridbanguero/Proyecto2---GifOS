@@ -1,19 +1,29 @@
-$color-fondo: #FFF4FD;
+$color-fondo1: #FFF4FD;
+$color-fondo2: #FFFAFE;
+$color-fondo3: #4180F6;
 $color-texto1: #FFFFFF;
 $color-texto2: #110038;
 $color-gradiente: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
-$color-borde: #E6BBE2 ;
-$color-boton: #F7C9F3;
+$color-borde1: #E6BBE2 ;
+$color-borde2: #CCA6C9;
+$color-borde3: #808080;
+$color-borde4: #110038;
+$color-borde5: #4C2F99;
+$color-borde6: #797979;
+$color-boton1: #F7C9F3;
+$color-boton2: #F0F0F0;
 $color-shadow-azul: #110038;
 $color-shadow-blanco: #FFFFFF;
 $color-shadow-morado: #997D97;
 $color-shadow-gris: #B4B4B4;
+$color-shadow-rosa: #E6DCE4;
+$color-shados-azul-claro: #284F99;
 $color-fondo-buscador: #E6E6E6;
 $fuente-texto: 'Chakra Petch', sans-serif;
 
 
 body {
-    background-color: $color-fondo;
+    background-color: $color-fondo1;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -40,6 +50,7 @@ body {
             margin-top: 44px;
             margin-right: 6.33vw;
             margin-left: 6.33vw;
+            margin-bottom: 19px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,6 +63,9 @@ body {
                     display: flex;
                     list-style: none;
                     li  {
+                        ul{
+                            display: none;
+                        }
                         padding: 9px;
                         a{
                             text-decoration: none;
@@ -63,44 +77,65 @@ body {
 
                         }
                         .sub_menu{
+                            position:absolute;
+                            z-index: 3;                            
                             margin-top: 10px;
-                            display: flex;
-                            flex-direction: column;
+                            display: block;
+                            /*Ponerle el display block para el active */
                             padding: 0;
                             line-height: 22px;
-                            background: #E6E6E6;
-                            box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+                            background: $color-fondo-buscador;
+                            box-shadow: inset -2px -2px 0 0 $color-shadow-gris, inset 2px 2px 0 0 $color-shadow-blanco;
                             li{
+                                padding: 0;
                                 button{
                                     font-size: 16px;
                                     color: $color-texto2;
                                     letter-spacing: 0;
                                     line-height: 22px;
-                                    padding: 7px 16px; 
+                                    width: 90%;
+                                    margin: 10px;
                                 }
                                 .day{
-                                    background: #FFF4FD;
-                                    border: 1px solid #CCA6C9;
-                                    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+                                    margin-bottom: 5px;
+                                    padding: 7px 60px 7px 16px;
+                                    background: $color-fondo1;
+                                    border: 1px solid $color-borde2;
+                                    box-shadow: inset -1px -1px 0 0 $color-shadow-rosa, inset 1px 1px 0 0 $color-shadow-blanco;
                                 }
                                 .night{
-                                    background: #F0F0F0;
-                                    border: 1px solid #808080;
-                                    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+                                    margin-top: 5px;
+                                    padding: 7px 49px 7px 16px;
+                                    background: $color-boton2;
+                                    border: 1px solid $color-borde3;
+                                    box-shadow: inset -1px -1px 0 0 $color-shadow-gris, inset 1px 1px 0 0 $color-shadow-blanco;
                                 }
                             }
                         }
+
                     }
                     .boton{
                         margin-left: 0;
                         padding: 9px 24px;
-                        background: #F7C9F3;
-                        border: 1px solid #110038;
-                        box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+                        background: $color-boton1;
+                        border: 1px solid $color-borde4;
+                        box-shadow: inset -1px -1px 0 0 $color-shadow-morado, inset 1px 1px 0 0 $color-shadow-blanco;
+                    }
+                    .boton:hover{
+                        border: 1px dotted $color-borde4;
+                    }
+                    .boton:active ~  .sub_menu{
+                        display: block;
                     }
                     .icon{
                         padding: 9px 15px;
-                        margin-left: -19px;
+                        margin-left: -26px;
+                    }
+                    .mis_guifos:hover{
+                        border: 1px dotted $color-borde4;
+                    }
+                    .mis_guifos:active{
+                        color: $color-texto2;
                     }
                 }
             }
@@ -134,8 +169,8 @@ body {
                     line-height: 22px;
                     padding: 13px 16px;
                     margin: 12px 15px;
-                    background: #FFFFFF;
-                    border: 1px solid #797979;
+                    background: $color-shadow-blanco;
+                    border: 1px solid $color-borde6;
                     box-shadow: inset -2px -2px 0 0 $color-fondo-buscador, inset 2px 2px 0 0 #000000; 
                 }
                 button{
@@ -143,7 +178,7 @@ body {
                     justify-content: space-evenly;
                     align-items: center;
                     font-size: 16px;
-                    color: #B4B4B4;
+                    color: $color-shadow-gris;
                     letter-spacing: 0;
                     line-height: 18px;
                     width: 100px;
@@ -167,9 +202,9 @@ body {
             font-size: 12px;
             color: $color-texto2;
             letter-spacing: 0;
-            background: #FFFAFE;
-            border: 1px solid #E6BBE2;
-            box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D; 
+            background: $color-fondo2;
+            border: 1px solid $color-borde1;
+            box-shadow: inset -2px -2px 0 0 $color-shadow-rosa, inset 2px 2px 0 0 $color-shadow-morado; 
             h2 {
                 margin: 0;
                 font-weight: 400;
@@ -181,9 +216,9 @@ body {
             justify-content: space-between;
             .sugerencia {
                 width: 24%;
-                background: #E6E6E6;
+                background: $color-fondo-buscador;
                 padding: 1px;
-                box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+                box-shadow: inset -2px -2px 0 0 $color-shadow-gris, inset 2px 2px 0 0 $color-shadow-blanco;
                 .titulo_sugerencia {
                     display: flex;
                     justify-content: space-between;
@@ -191,7 +226,7 @@ body {
                     background-image: $color-gradiente;
                     font-family: $fuente-texto;
                     font-size: 14px;
-                    color: #FFFFFF;
+                    color: $color-texto1;
                     letter-spacing: 0;
                     padding: 3px;
                     margin: 1px;
@@ -212,9 +247,9 @@ body {
                         letter-spacing: 0;
                         text-align: center;
                         line-height: 18px;
-                        background: #4180F6;
-                        border: 1px solid #4C2F99;
-                        box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+                        background: $color-fondo3;
+                        border: 1px solid $color-borde5;
+                        box-shadow: inset -2px -2px 0 0 $color-shados-azul-claro, inset 2px 2px 0 0 $color-shadow-blanco;
                         text-decoration: none;
                         padding: 8px 10px;
                         position: relative;
@@ -229,8 +264,8 @@ body {
             margin-top: 16px;
             .tendencia{
                 width: 24%;
-                background: #E6E6E6;
-                box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+                background: $color-fondo-buscador;
+                box-shadow: inset -2px -2px 0 0 $color-shadow-gris, inset 2px 2px 0 0 $color-shadow-blanco;
 
             }
         }
