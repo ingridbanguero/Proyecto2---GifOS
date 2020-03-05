@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="text/css" rel="stylesheet" href="./Style/style-night.css">
+    <link type="text/css" rel="stylesheet" href="./Style/style-day.css">
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
     <title>Proyecto GifOS</title>
 </head>
@@ -31,10 +31,10 @@
         </div>
         <div class="buscador">
             <p>Buscar</p>
-            <div class="contenedor_buscador">
-                <input class="input" type="text" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button type="button"><img src="./Images/lupa_inactive.svg" alt=""> Buscar</button>
-            </div>  
+            <form id="search-form" class="contenedor_buscador">
+                <input id="search-input" class="input" type="text" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                <button type="submit"><img src="./Images/lupa_inactive.svg" alt=""> Buscar</button>
+            </form>  
         </div>
     </header>
     <section class="seccion sug">
@@ -48,7 +48,7 @@
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
                 <div class="imagen_sugerencia">
-                    <img src="" alt="">
+                    <!-- Aqui se debe insertar gif -->
                     <a href="">Ver más...</a>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
                 <div class="imagen_sugerencia">
-                    <img src="" alt="">
+                    <!-- Aqui se debe insertar gif -->
                     <a href="">Ver más...</a>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
                 <div class="imagen_sugerencia">
-                    <img src="" alt="">
+                    <!-- Aqui se debe insertar gif -->
                     <a href="">Ver más...</a>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
                 <div class="imagen_sugerencia">
-                    <img src="" alt="">
+                    <!-- Aqui se debe insertar gif -->
                     <a href="">Ver más...</a>
                 </div>
             </div>
@@ -86,13 +86,50 @@
     </section>
     <section class="seccion ten">
         <div class="titulo">
-            <h2>Tendencias</h2>
+            <h2 id="title_tendencias">Tendencias</h2>
         </div>
-        <div class="contenedor_tendencias">
-            <div class="tendencia">
-                <img class="imagen_tendencia" src="" alt="">
-            </div>
+        <div id="results" class="contenedor_tendencias">
+            
         </div>
     </section>
+    <script>
+        const searchForm = document.getElementById('search-form')
+        const searchInput = document.getElementById('search-input')
+        const resultsEl = document.getElementById('results')
+        const tendencias = document.getElementById('title_tendencias')
+
+        searchForm.addEventListener('submit', function(e){
+            e.preventDefault()
+            const q = searchInput.value
+            search(q);
+        })
+
+
+        function search(q){
+            const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
+            const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}`
+
+            fetch(path).then(function(res) {
+                return res.json() // Promise
+            }).then(function(json){
+                console.log(json.data[0].images.fixed_width.url)
+                
+                let resultsHTML = ''
+                json.data.forEach(function(obj){
+                    console.log(obj)
+                    console.log(obj.images.fixed_width.url)
+                    const url = obj.images.fixed_width.url
+                    const width = obj.images.fixed_width.width
+                    const height = obj.images.fixed_width.height
+                    const title = obj.title
+                    resultsHTML += `<div class="tendencia"> <img src="${url}" width="${width} alt="${title}" height="${height}"><p>#hashtag</p></div>`
+                })
+
+                resultsEl.innerHTML = resultsHTML
+            }).catch(function(err){
+                console.log(err.message)
+            })
+        }
+    </script>
 </body>
 </html>

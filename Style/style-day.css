@@ -4,6 +4,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Chakra Petch", sans-serif;
+  box-sizing: border-box;
   /*Encabezado*/ }
   body header {
     /*Menu*/ }
@@ -49,7 +50,7 @@ body {
             position: absolute;
             z-index: 3;
             margin-top: 10px;
-            display: block;
+            display: none;
             /*Ponerle el display block para el active */
             padding: 0;
             line-height: 22px;
@@ -178,7 +179,7 @@ body {
           body .seccion .contenedor_sugerencias .sugerencia .titulo_sugerencia h3 {
             margin: 0; }
         body .seccion .contenedor_sugerencias .sugerencia .imagen_sugerencia {
-          height: 250px;
+          height: 280px;
           margin-top: 2px; }
           body .seccion .contenedor_sugerencias .sugerencia .imagen_sugerencia a {
             font-size: 14px;
@@ -195,10 +196,43 @@ body {
             top: 85%;
             left: 7px; }
     body .seccion .contenedor_tendencias {
-      margin-top: 16px; }
+      margin-top: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; }
       body .seccion .contenedor_tendencias .tendencia {
         width: 24%;
+        height: 296px;
+        margin-bottom: 10px; }
+        body .seccion .contenedor_tendencias .tendencia p {
+          background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 14px;
+          color: #FFFFFF;
+          letter-spacing: 0;
+          padding: 3px 1px 3px 1px;
+          margin: 2px;
+          font-weight: 600;
+          position: relative;
+          top: -34px;
+          z-index: 3;
+          display: none; }
+        body .seccion .contenedor_tendencias .tendencia img {
+          width: 100%;
+          height: 100%;
+          margin: auto; }
+      body .seccion .contenedor_tendencias .tendencia:hover {
         background: #E6E6E6;
-        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF; }
+        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+        margin-top: 2px; }
+        body .seccion .contenedor_tendencias .tendencia:hover p {
+          display: block;
+          width: 97.7%; }
+        body .seccion .contenedor_tendencias .tendencia:hover img {
+          width: 98%;
+          height: 98%;
+          border: 1px dotted #110038;
+          margin: 2px; }
 
 /*# sourceMappingURL=style-day.css.map */
