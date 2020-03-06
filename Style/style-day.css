@@ -50,7 +50,7 @@ body {
             position: absolute;
             z-index: 3;
             margin-top: 10px;
-            display: none;
+            display: block;
             /*Ponerle el display block para el active */
             padding: 0;
             line-height: 22px;

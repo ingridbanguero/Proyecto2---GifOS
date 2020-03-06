@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="text/css" rel="stylesheet" href="./Style/style-day.css">
+    <link id="estilo" type="text/css" rel="stylesheet" href="./Style/style-day.css">
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
     <title>Proyecto GifOS</title>
 </head>
@@ -20,8 +20,8 @@
                     <li ><a class="boton" href="">Crear Guifos</a></li>
                     <li ><a class="boton tema" href="">Elegir tema</a>
                         <ul class="sub_menu">
-                            <li><button class="day">Sailor Day</button></li>
-                            <li><button class="night">Sailor Night</button></li>
+                            <li><button id="day" class="day">Sailor Day</button></li>
+                            <li><button id="night" class="night">Sailor Night</button></li>
                         </ul>
                     </li>
                     <li><a class="boton icon" href=""><img src="./Images/dropdown.svg" alt=""></a></li>
@@ -89,14 +89,20 @@
             <h2 id="title_tendencias">Tendencias</h2>
         </div>
         <div id="results" class="contenedor_tendencias">
-            
+            <!-- Aqui se debe insertar gif -->
         </div>
     </section>
     <script>
         const searchForm = document.getElementById('search-form')
         const searchInput = document.getElementById('search-input')
         const resultsEl = document.getElementById('results')
-        const tendencias = document.getElementById('title_tendencias')
+        
+        
+        document.getElementById('day').addEventListener('click', 
+        function(){
+            document.getElementById('estilo').setAttribute('href', './Style/style-day.css')
+        })
+
 
         searchForm.addEventListener('submit', function(e){
             e.preventDefault()
