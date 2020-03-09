@@ -14,27 +14,33 @@
             <h1>¡Bienvenido/as a Guifos.com! ------Donde los gifs están.////// Número de visitas: 12.765.803</h1>
         </div>
         <div class="menu"> 
-            <img class="img_menu" src="./Images/gifOF_logo.png" alt="Imagen representativa del logo de la pagina gif.OS">
-            <nav class="opciones_menu">
-                <ul>
-                    <li ><a class="boton" href="">Crear Guifos</a></li>
-                    <li ><a class="boton tema" href="">Elegir tema</a>
-                        <ul class="sub_menu">
-                            <li><button id="day" class="day">Sailor Day</button></li>
-                            <li><button id="night" class="night">Sailor Night</button></li>
-                        </ul>
-                    </li>
-                    <li><a class="boton icon" href=""><img src="./Images/dropdown.svg" alt=""></a></li>
-                    <li><a class="mis_guifos" href="">Mis Guifos</a></li>
-                </ul>
+            <img id="logo" class="img_menu" src="./Images/gifOF_logo.png" alt="Imagen representativa del logo de la pagina gif.OS">
+            <nav class="enlaces">
+                    <a class="text boton" href="">Crear Guifos</a>
+                    <div class="contenedor_tema" id="tema">
+                        <button class="select">
+                            <span class="text">Elegir tema</span>
+                            <span class="icon"><img id="triangulo" src="./Images/dropdown.svg" alt=""></span>
+                        </button>
+                        <div class="subtemas" id="subtemas">
+                            <button id="day" class="text boton tema day">Sailor Day</button>
+                            <button id="night" class="text boton tema night">Sailor Night</button>
+                        </div>
+                    </div>
+                    <a class="text" href="misguifos.html">Mis Guifos</a>
             </nav>
         </div>
         <div class="buscador">
             <p>Buscar</p>
             <form id="search-form" class="contenedor_buscador">
-                <input id="search-input" class="input" type="text" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button type="submit"><img src="./Images/lupa_inactive.svg" alt=""> Buscar</button>
+                <input id="search-input" class="input" autocomplete="off" type="text" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                <button type="submit" onclick="window.location.href='#seccion_tendencias'"><img src="./Images/lupa_inactive.svg" alt=""> Buscar</button>
             </form>  
+            <div class="busqueda" id="busqueda">
+                <button value="kittens" onclick="window.location.href='#seccion_tendencias'" id="sugerido1">Kittens</button>
+                <button value="puppies" onclick="window.location.href='#seccion_tendencias'" id="sugerido2">Puppies</button>
+                <button value="unicorns" onclick="window.location.href='#seccion_tendencias'" id="sugerido3">Unicorns</button>
+            </div>
         </div>
     </header>
     <section class="seccion sug">
@@ -47,8 +53,8 @@
                     <h3>#Jonathanvanness</h3>
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
-                <div class="imagen_sugerencia">
-                    <!-- Aqui se debe insertar gif -->
+                <div id="sug1" class="imagen_sugerencia">
+                    <img src="https://media.giphy.com/media/5PhoLTGAiHguInjU8w/giphy.gif" alt="">
                     <a href="">Ver más...</a>
                 </div>
             </div>
@@ -58,17 +64,17 @@
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
                 <div class="imagen_sugerencia">
-                    <!-- Aqui se debe insertar gif -->
+                    <img src="https://media.giphy.com/media/DhrZnPBCmX9yo/giphy.gif" alt="Sailor Mercury gif">
                     <a href="">Ver más...</a>
                 </div>
             </div>
             <div class="sugerencia">
                 <div class="titulo_sugerencia">
-                    <h3>#FabFive</h3>
+                    <h3>#Glitter</h3>
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
                 <div class="imagen_sugerencia">
-                    <!-- Aqui se debe insertar gif -->
+                    <img src="https://media.giphy.com/media/xTiTnEHBh7qapyuvwQ/giphy.gif" alt="">
                     <a href="">Ver más...</a>
                 </div>
             </div>
@@ -78,64 +84,20 @@
                     <button><img src="./Images/button3.svg" alt=""></button>
                 </div>
                 <div class="imagen_sugerencia">
-                    <!-- Aqui se debe insertar gif -->
+                    <img src="https://media.giphy.com/media/26AHG5KGFxSkUWw1i/giphy.gif" alt="">
                     <a href="">Ver más...</a>
                 </div>
             </div>
         </div>    
     </section>
-    <section class="seccion ten">
+    <section id="seccion_tendencias" class="seccion ten">
         <div class="titulo">
-            <h2 id="title_tendencias">Tendencias</h2>
+            <h2 id="tendencias">Tendencias</h2>
         </div>
         <div id="results" class="contenedor_tendencias">
-            <!-- Aqui se debe insertar gif -->
+            <!-- Aqui se debe insertan los gifs de tendencias -->
         </div>
     </section>
-    <script>
-        const searchForm = document.getElementById('search-form')
-        const searchInput = document.getElementById('search-input')
-        const resultsEl = document.getElementById('results')
-        
-        
-        document.getElementById('day').addEventListener('click', 
-        function(){
-            document.getElementById('estilo').setAttribute('href', './Style/style-day.css')
-        })
-
-
-        searchForm.addEventListener('submit', function(e){
-            e.preventDefault()
-            const q = searchInput.value
-            search(q);
-        })
-
-
-        function search(q){
-            const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
-            const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}`
-
-            fetch(path).then(function(res) {
-                return res.json() // Promise
-            }).then(function(json){
-                console.log(json.data[0].images.fixed_width.url)
-                
-                let resultsHTML = ''
-                json.data.forEach(function(obj){
-                    console.log(obj)
-                    console.log(obj.images.fixed_width.url)
-                    const url = obj.images.fixed_width.url
-                    const width = obj.images.fixed_width.width
-                    const height = obj.images.fixed_width.height
-                    const title = obj.title
-                    resultsHTML += `<div class="tendencia"> <img src="${url}" width="${width} alt="${title}" height="${height}"><p>#hashtag</p></div>`
-                })
-
-                resultsEl.innerHTML = resultsHTML
-            }).catch(function(err){
-                console.log(err.message)
-            })
-        }
-    </script>
+<script src="./js/main.js"></script>
 </body>
 </html>

@@ -1,27 +1,3 @@
-$color-fondo1: #FFF4FD;
-$color-fondo2: #FFFAFE;
-$color-fondo3: #4180F6;
-$color-texto1: #FFFFFF;
-$color-texto2: #110038; // Este tiene problemas
-$color-texto3: #110038;
-$color-gradiente: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
-$color-borde1: #E6BBE2 ;
-$color-borde2: #CCA6C9;
-$color-borde3: #808080;
-$color-borde4: #110038;
-$color-borde5: #4C2F99;
-$color-borde6: #797979;
-$color-boton1: #F7C9F3;
-$color-boton2: #F0F0F0;
-$color-shadow-azul: #110038;
-$color-shadow-blanco: #FFFFFF;
-$color-shadow-morado: #997D97;
-$color-shadow-gris: #B4B4B4;
-$color-shadow-rosa: #E6DCE4;
-$color-shadow-azul-claro: #284F99;
-$color-fondo-buscador: #E6E6E6;
-$fuente-texto: 'Chakra Petch', sans-serif;
-
 *{
     padding: 0;
     margin: 0;
@@ -92,7 +68,7 @@ body {
                 font-family: $fuente-texto;
                 text-decoration: none;
                 font-size: 16px;
-                color: $color-texto3;
+                color: $color-texto2;
                 letter-spacing: 0;
                 line-height: 22px;
                 margin: 16px;
@@ -204,33 +180,6 @@ body {
                 }
             }
         }
-        .busqueda{
-            position: absolute; 
-            width: 87.2%;
-            display: none;
-            flex-direction: column;
-            background: #E6E6E6;
-            box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-            z-index: 2;
-            button{
-                margin: 0px 128px 10px 15px;
-                padding: 7px 797px 7px 16px;
-                background: #F0F0F0;
-                border: 1px solid #808080;
-                box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-                font-size: 16px;
-                text-align: left;
-                color: #110038;
-                letter-spacing: 0;
-                line-height: 22px;
-                &:first-child{
-                    margin-top: 17px;
-                }
-            }
-            &.active{
-                display: flex;
-            }
-        }
 
     }
     // ----- ----- ----- ----- ----- SECCION HOY TE SUGERIMOS ----- ----- ----- ----- ----- 
@@ -277,17 +226,9 @@ body {
                     text-decoration: none;
                     padding: 8px 10px;
                     position: relative;
-                    top: -50px;
+                    top: 85%;
                     left: 7px;
                     
-                }
-                img {
-                    width: 99.5%;
-                    height: 99.2%;
-                    align-self: center;
-                    position: relative;
-                    
-                    margin-left: 1px;
                 }
             }
         }
@@ -338,4 +279,3 @@ body {
             }
         }
     }
-
