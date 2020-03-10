@@ -48,7 +48,7 @@ function search(q){
         let resultsHTML = ''
         json.data.forEach(function(obj){
             console.log(obj)
-            console.log(obj.images.fixed_width.url)
+            // console.log(obj.images.fixed_width.url)
             const url = obj.images.fixed_width.url
             const width = obj.images.fixed_width.width
             const height = obj.images.fixed_width.height
