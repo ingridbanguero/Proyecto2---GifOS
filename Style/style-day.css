@@ -1,6 +1,7 @@
 * {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-family: "Chakra Petch", sans-serif; }
 
 body {
   background-color: #FFF4FD;
@@ -202,7 +203,7 @@ body {
     .contenedor_sugerencias .sugerencia .imagen_sugerencia {
       height: 280px;
       margin-top: 2px; }
-      .contenedor_sugerencias .sugerencia .imagen_sugerencia a {
+      .contenedor_sugerencias .sugerencia .imagen_sugerencia button {
         font-size: 14px;
         color: #FFFFFF;
         letter-spacing: 0;

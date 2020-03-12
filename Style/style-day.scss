@@ -25,6 +25,7 @@ $fuente-texto: 'Chakra Petch', sans-serif;
 *{
     padding: 0;
     margin: 0;
+    font-family: $fuente-texto;
 }
 
 body {
@@ -265,7 +266,7 @@ body {
             .imagen_sugerencia{
                 height: 280px;
                 margin-top: 2px;
-                a {
+                button {
                     font-size: 14px;
                     color: $color-texto1;
                     letter-spacing: 0;
