@@ -1,10 +1,12 @@
+
 // Evento active del menu para seleccionar el tema
 const btnTema = document.querySelector('#tema');
 const subTemas = document.querySelector('#subtemas');
 
 
-btnTema.addEventListener('click', ()=> {
+btnTema.addEventListener('click', (e)=> {
     subTemas.classList.toggle('active');
+    e.stopPropagation();
 })
 
 // Cambio de tema
@@ -54,7 +56,8 @@ function search(q){
             // console.log(title);
             let arrayTitle = title.split(" ");
             arrayTitle.forEach((elemento)=>{
-                if (elemento !== "GIF"){
+                if (elemento !== "GIF" && elemento !== "by"){
+                    elemento = elemento.toLowerCase();
                     tag += '#' + elemento + " "
                 }
             } );
@@ -69,30 +72,19 @@ function search(q){
 }
 
 // Menu sugerencia de resultados de busqueda
-
 const menu_busqueda = document.querySelector('#busqueda');
 
-searchInput.addEventListener("click",()=>{
-    menu_busqueda.classList.add('active');
+searchInput.addEventListener("click",(e)=>{
+    menu_busqueda.classList.toggle('active');
+    e.stopPropagation();
 })
 
-const sugerencia1 = document.getElementById('sugerido1');
-const sugerencia2 = document.getElementById('sugerido2');
-const sugerencia3 = document.getElementById('sugerido3');
-
-sugerencia1.addEventListener('click', ()=>{
-    q = sugerencia1.value;
-    search(q);
-})
-
-sugerencia2.addEventListener('click', ()=>{
-    q = sugerencia2.value;
-    search(q);
-})
-
-sugerencia3.addEventListener('click', ()=>{
-    q = sugerencia3.value;
-    search(q);
+menu_busqueda.addEventListener('click', (e)=> {
+    if(e.target.id !== "busqueda"){
+        q = e.target.value;
+        search(q);
+        window.location.href='#seccion_tendencias'
+    }
 })
 
 // Gifs de seccion Hoy te sugerimos
@@ -101,6 +93,20 @@ let sugeridos = ["Jonathan Van Ness", "Sailor Mercury", "Glitter", "Unicorn and 
 let sugerenciaHTML = "";
 let nomSug = [];
 let i = 1;
+
+async function getSug(){
+    for (element of sugeridos){
+        const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
+        const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${element}&limit=12`
+        const resp = await fetch(path);
+        const datos = await resp.json();
+        console.log(datos)
+        console.log(datos.data[0].images.fixed_width.url)
+    }
+}
+getSug();
+
+
 
 sugeridos.forEach(element => {
     // console.log(element);
@@ -151,3 +157,8 @@ function eliminarSug1(){
     console.log('A eliminar')
 }
 
+// Cerrar menu de sugerencias y de temas
+window.addEventListener('click', ()=>{
+    menu_busqueda.classList.remove('active');
+    subTemas.classList.remove('active');
+})
