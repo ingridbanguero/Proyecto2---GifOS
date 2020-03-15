@@ -89,10 +89,10 @@ menu_busqueda.addEventListener('click', (e)=> {
 
 // Gifs de seccion Hoy te sugerimos
 const sugerencias = document.getElementById('sugerencias');
+const imgSug = document.getElementsByClassName('imgSug');
+const titleSug = document.getElementsByClassName('titleSug');
 let sugeridos = ["Jonathan Van Ness", "Sailor Mercury", "Glitter", "Unicorn and Raibows"];
-let sugerenciaHTML = "";
-let nomSug = [];
-let i = 1;
+let i = 0;
 
 async function getSug(){
     for (element of sugeridos){
@@ -100,63 +100,30 @@ async function getSug(){
         const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${element}&limit=12`
         const resp = await fetch(path);
         const datos = await resp.json();
-        console.log(datos)
-        console.log(datos.data[0].images.fixed_width.url)
+        const url = datos.data[0].images.fixed_width.url
+        const title = element.title;
+        imgSug[i].setAttribute("src", `${url}`);
+        imgSug[i].setAttribute("alt", `${title}`);
+        titleSug[i].innerHTML = element;
+        i++;
     }
 }
 getSug();
 
+// Funcionamiento botones "Ver Mas..."
+const sug = document.getElementById('sugerencias');
 
 
-sugeridos.forEach(element => {
-    // console.log(element);
-    const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
-    const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${element}&limit=12`
-    fetch(path).then(function(res) {
-        return res.json() // Promise
-    }).then(function(json){
-        // console.log(json.data[0].images.fixed_width.url)
-        const url = json.data[0].images.fixed_width.url
-        const title = element.title;
-        
-        nomSug.push(element);
-        sugerenciaHTML += `<div id="sugerencia${i}" class="sugerencia">
-        <div class="titulo_sugerencia">
-            <h3>#${element}</h3>
-            <button onclick="eliminarSug${i}"><img src="./Images/button3.svg" alt=""></button>
-        </div>
-        <div id="sug1" class="imagen_sugerencia">
-            <img src="${url}" alt="${title}">
-            <button href="#seccion_tendencias" onclick="verMas${i}()" value="${element}">Ver más...</a>
-        </div>
-        </div>`
-        
-        // console.log(sugerenciaHTML) 
-        sugerencias.innerHTML = sugerenciaHTML;
-        i++;
-    }).catch(function(err){
-        console.log(err.message)
-    })
+sug.addEventListener('click', (e)=>{
+    if(e.target.name === "buscar"){
+        search(e.target.value);
+        window.location.href='#seccion_tendencias';
+    } else if (e.target.alt === "Eliminar sugerencia"){
+        const hijo = e.target;
+        const padre = hijo.parentNode.parentNode;
+        padre.parentNode.remove(padre);
+    }
 })
-function verMas1(){
-    search(nomSug[0]); 
-}
-function verMas2(){
-    search(nomSug[1]); 
-}
-function verMas3(){
-    search(nomSug[2]); 
-}
-function verMas4(){
-    search(nomSug[3]); 
-}
-
-
-const eliminado = document.getElementById('sugerencia1');
-function eliminarSug1(){
-    console.log('A eliminar')
-}
-
 // Cerrar menu de sugerencias y de temas
 window.addEventListener('click', ()=>{
     menu_busqueda.classList.remove('active');
