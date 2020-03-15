@@ -18,13 +18,22 @@ const logo = document.querySelector('#logo');
 btnNight.addEventListener('click', ()=>{
     estilo.setAttribute("href", "./Style/style-night.css");
     logo.setAttribute("src", "./Images/gifOF_logo_dark.png");
+    localStorage.setItem("dark-modo", "true");
 })
 
 btnDay.addEventListener('click', ()=>{
     estilo.setAttribute("href", "./Style/style-day.css");
     logo.setAttribute("src","./Images/gifOF_logo.png");
+    localStorage.setItem("dark-modo", "false");
 })
 
+if(localStorage.getItem("dark-modo") === "true"){
+    estilo.setAttribute("href", "./Style/style-night.css");
+    logo.setAttribute("src", "./Images/gifOF_logo_dark.png");
+} else {
+    estilo.setAttribute("href", "./Style/style-day.css");
+    logo.setAttribute("src","./Images/gifOF_logo.png");
+}
 
 // Integración con la API por el buscador
 const searchForm = document.getElementById('search-form')
