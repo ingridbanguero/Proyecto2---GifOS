@@ -50,6 +50,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .menu .reg {
+    display: flex;
+    align-items: center; }
+    .menu .reg .regresar {
+      margin-right: 7px; }
   .menu .img_menu {
     width: 102.6px;
     height: 64px; }
@@ -95,14 +100,17 @@ body {
       box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF; }
       .menu .enlaces .subtemas button {
         width: 160px;
-        margin: 10px; }
+        margin: 10px;
+        outline: none; }
       .menu .enlaces .subtemas .day {
         margin-bottom: 0;
+        color: #110038;
         background: #FFFAFE;
         border: 1px solid #CCA6C9;
         box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF; }
       .menu .enlaces .subtemas .night {
         background: #CCA6C9;
+        color: #110038;
         border: 1px solid #808080;
         box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF; }
       .menu .enlaces .subtemas.active {
@@ -268,5 +276,72 @@ body {
       height: 98%;
       border: 1px dotted #110038;
       margin: 2px; }
+
+.tituloGuifos {
+  font-weight: 700;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  padding-top: 3.4px;
+  padding-bottom: 2.6px;
+  padding-left: 7px; }
+
+.captura1 {
+  width: 47vw;
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px; }
+  .captura1 .titulo_captura {
+    display: flex;
+    align-items: center;
+    margin: 30px auto 7px 25px; }
+    .captura1 .titulo_captura h2 {
+      font-size: 16px;
+      color: #110038;
+      letter-spacing: 0;
+      line-height: 22px;
+      font-weight: 700;
+      margin-left: 16px; }
+  .captura1 .instrucciones {
+    font-family: "Chakra Petch", sans-serif;
+    margin: 7px 93px 28px 73px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 20px; }
+    .captura1 .instrucciones ol li {
+      list-style: none;
+      line-height: 28px; }
+  .captura1 .botones {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%; }
+    .captura1 .botones button {
+      margin-bottom: 36px;
+      padding: 9px 39.5px;
+      background-color: #F7C9F3;
+      font-size: 16px;
+      color: #110038;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 18px;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+      outline: none; }
+      .captura1 .botones button:first-child {
+        background-color: #FFF4FD;
+        margin-right: 16px; }
+
+.captura2 {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  padding: 2px; }
 
 /*# sourceMappingURL=style-day.css.map */

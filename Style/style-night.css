@@ -50,6 +50,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .menu .reg {
+    display: flex;
+    align-items: center; }
+    .menu .reg .regresar {
+      margin-right: 7px; }
   .menu .img_menu {
     width: 102.6px;
     height: 64px; }
@@ -92,19 +97,22 @@ body {
       flex-direction: column;
       z-index: 2;
       background: #E6E6E6;
-      box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF; }
+      box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF; }
       .menu .enlaces .subtemas button {
         width: 160px;
-        margin: 10px; }
+        margin: 10px;
+        outline: none; }
       .menu .enlaces .subtemas .day {
         margin-bottom: 0;
-        background: #FFFAFE;
-        border: 1px solid #CCA6C9;
+        color: #110038;
+        background: #CCCCCC;
+        border: 1px solid #808080;
         box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF; }
       .menu .enlaces .subtemas .night {
-        background: #CCA6C9;
+        background: #808080;
+        color: #FFFFFF;
         border: 1px solid #808080;
-        box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF; }
+        box-shadow: inset -1px -1px 0 0 #8F8F8F, inset 1px 1px 0 0 #FFFFFF; }
       .menu .enlaces .subtemas.active {
         display: flex; }
 
@@ -112,7 +120,7 @@ body {
   margin-right: 6.33vw;
   margin-left: 6.33vw;
   background: #E6E6E6;
-  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF; }
+  box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF; }
   .buscador p {
     position: relative;
     top: 1px;
@@ -131,7 +139,7 @@ body {
       font-family: "Chakra Petch", sans-serif;
       width: 94%;
       font-size: 16px;
-      color: #B4B4B4;
+      color: #8F8F8F;
       letter-spacing: 0;
       line-height: 22px;
       padding: 13px 16px;
@@ -144,7 +152,7 @@ body {
       justify-content: space-evenly;
       align-items: center;
       font-size: 16px;
-      color: #B4B4B4;
+      color: #8F8F8F;
       letter-spacing: 0;
       line-height: 18px;
       width: 100px;
@@ -184,7 +192,7 @@ body {
     width: 24%;
     background: #E6E6E6;
     padding: 1px;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF; }
+    box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF; }
     .contenedor_sugerencias .sugerencia:first-child {
       margin-left: 0; }
     .contenedor_sugerencias .sugerencia:last-child {
@@ -258,7 +266,7 @@ body {
       margin: auto; }
   .contenedor_tendencias .tendencia:hover {
     background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
     margin-top: 2px; }
     .contenedor_tendencias .tendencia:hover p {
       display: block;
@@ -268,5 +276,64 @@ body {
       height: 98%;
       border: 1px dotted #110038;
       margin: 2px; }
+
+.captura1 {
+  width: 47vw;
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px; }
+  .captura1 h1 {
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    padding-top: 3.4px;
+    padding-bottom: 2.6px;
+    padding-left: 7px;
+    margin: 2px; }
+  .captura1 .titulo_captura {
+    display: flex;
+    align-items: center;
+    margin: 30px auto 7px 25px; }
+    .captura1 .titulo_captura h2 {
+      font-size: 16px;
+      color: #110038;
+      letter-spacing: 0;
+      line-height: 22px;
+      font-weight: 700;
+      margin-left: 16px; }
+  .captura1 .instrucciones {
+    font-family: "Chakra Petch", sans-serif;
+    margin: 7px 93px 28px 73px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 20px; }
+    .captura1 .instrucciones ol li {
+      list-style: none;
+      line-height: 28px; }
+  .captura1 .botones {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%; }
+    .captura1 .botones button {
+      margin-bottom: 36px;
+      padding: 9px 39.5px;
+      background-color: #EE3EFE;
+      font-size: 16px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 18px;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+      outline: none; }
+      .captura1 .botones button:first-child {
+        background-color: #120238;
+        margin-right: 16px; }
 
 /*# sourceMappingURL=style-night.css.map */

@@ -1,12 +1,13 @@
 $color-fondo1: #120238;
 $color-fondo2: #FFFAFE;
 $color-fondo3: #2E32FB ;
+$color-fondo4: #CCCCCC ;
 $color-texto1: #FFFFFF;
 $color-texto2: #110038;
 $color-texto3: #FFFFFF;
 $color-gradiente: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 $color-borde1: #2E32FB;
-$color-borde2: #CCA6C9;
+$color-borde2: #808080;
 $color-borde3: #808080;
 $color-borde4: #110038;
 $color-borde5: #4C2F99;
@@ -16,7 +17,7 @@ $color-boton2: #F0F0F0;
 $color-shadow-azul: #110038;
 $color-shadow-blanco: #FFFFFF;
 $color-shadow-morado: #997D97;
-$color-shadow-gris: #B4B4B4;
+$color-shadow-gris: #8F8F8F;
 $color-shadow-rosa: #E6DCE4;
 $color-shadow-azul-claro: #284F99;
 $color-fondo-buscador: #E6E6E6;
@@ -82,6 +83,13 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .reg{
+            display: flex;
+            align-items: center;
+            .regresar{
+                margin-right: 7px;
+            }
+        }
         .img_menu {
             width: 102.6px;
             height: 64px;
@@ -136,15 +144,18 @@ body {
                 button{
                     width: 160px;
                     margin: 10px;
+                    outline: none;
                 }
                 .day{
                     margin-bottom: 0;
-                    background: $color-fondo2;
+                    color: $color-texto2;
+                    background: $color-fondo4;
                     border: 1px solid $color-borde2;
                     box-shadow: inset -1px -1px 0 0 $color-shadow-rosa, inset 1px 1px 0 0 $color-shadow-blanco;
                 }
                 .night{
                     background: $color-borde2;
+                    color: $color-texto3;
                     border: 1px solid $color-borde3;
                     box-shadow: inset -1px -1px 0 0 $color-shadow-gris, inset 1px 1px 0 0 $color-shadow-blanco;
                 }
@@ -345,4 +356,74 @@ body {
             }
         }
     }
+    .captura1{
+        width: 47vw;
+        background: #E6E6E6;
+        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2px;
+        h1{
+            font-weight: 700;
+            font-size: 14px;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            background-image: $color-gradiente;
+            padding-top: 3.4px;
+            padding-bottom: 2.6px; 
+            padding-left: 7px;
+            margin: 2px;
+        }
+        .titulo_captura{
+            display: flex;
+            align-items: center;
+            margin: 30px auto 7px 25px;
+            h2{
+                font-size: 16px;
+                color: $color-texto2;
+                letter-spacing: 0;
+                line-height: 22px;
+                font-weight: 700;
+                margin-left: 16px;
+            }
+        }
+        .instrucciones{
+            font-family: $fuente-texto;
+            margin: 7px 93px 28px 73px;
+            font-weight: 400;
+            font-size: 14px;
+            color: $color-texto2;
+            letter-spacing: 0;
+            line-height: 20px;
+            ol li{
+                list-style: none;
+                line-height: 28px;
+            }
+        }
+        .botones{
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 5%;
+            button{
+                margin-bottom: 36px;
+                padding: 9px 39.5px;
+                background-color: $color-boton1;
+                font-size: 16px;
+                color: $color-texto3;
+                letter-spacing: 0;
+                text-align: center;
+                line-height: 18px;
+                border: 1px solid $color-borde4;
+                box-shadow: inset -1px -1px 0 0 $color-shadow-morado, inset 1px 1px 0 0 $color-shadow-blanco;
+                outline: none;
+                &:first-child{
+                    background-color: $color-fondo1;
+                    margin-right: 16px;
+                }
+            }
+            
+        }
+        
+    }
+
 
