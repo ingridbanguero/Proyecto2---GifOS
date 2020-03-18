@@ -248,6 +248,7 @@ body {
     height: 296px;
     margin-bottom: 10px; }
     .contenedor_tendencias .tendencia p {
+      display: flex;
       background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
       font-family: "Chakra Petch", sans-serif;
       font-size: 14px;

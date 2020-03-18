@@ -51,11 +51,16 @@ btnComenzar.addEventListener('click', ()=>{
 let video = document.querySelector("#video");
 
 document.querySelector("#grabar").addEventListener("click", function(ev){
-    navigator.mediaDevices.getUserMedia({video: true})
+    navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {height: {max: 480}
+        }
+    })
     .then(record)
     .catch(error => console.log(error));
 })
 
 function record(stream){
     video.srcObject = stream;
+    video.play();
 }

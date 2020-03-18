@@ -39,7 +39,7 @@ if(localStorage.getItem("dark-modo") === "true"){
 const searchForm = document.getElementById('search-form')
 const searchInput = document.getElementById('search-input')
 const resultsEl = document.getElementById('results')
-let q = 'random';
+let q = 'tendency';
 search(q);
 
 searchForm.addEventListener('submit', function(e){
@@ -64,12 +64,12 @@ function search(q){
             let tag = '';
             // console.log(title);
             let arrayTitle = title.split(" ");
-            arrayTitle.forEach((elemento)=>{
-                if (elemento !== "GIF" && elemento !== "by"){
-                    elemento = elemento.toLowerCase();
-                    tag += '#' + elemento + " "
+            for (let i=0; i<=3; i++){
+                if (arrayTitle[i] !== "GIF" && arrayTitle[i] !== "by" && arrayTitle[i] !== undefined){
+                    arrayTitle[i] = arrayTitle[i];
+                    tag += '#' + arrayTitle[i] + " "
                 }
-            } );
+            } 
             // console.log(arrayTitle);
             // console.log(tag);
             resultsHTML += `<div class="tendencia"> <img src="${url}" alt="${title}"><p>${tag}</p></div>`
