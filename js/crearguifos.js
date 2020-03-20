@@ -48,19 +48,20 @@ btnComenzar.addEventListener('click', ()=>{
 })
 
 // Grabacion de video 
-let video = document.querySelector("#video");
-
-document.querySelector("#grabar").addEventListener("click", function(ev){
+function getStreamAndRecord (){
     navigator.mediaDevices.getUserMedia({
         audio: false,
-        video: {height: {max: 480}
+        video: {
+            height: {min: 400},
+            width: {min: 400}
         }
     })
-    .then(record)
+    .then(function(stream){
+        video.srcObject = stream;
+        video.play();
+    })
     .catch(error => console.log(error));
-})
-
-function record(stream){
-    video.srcObject = stream;
-    video.play();
 }
+getStreamAndRecord();
+
+let video = document.querySelector("#video");

@@ -245,6 +245,24 @@ body {
     }
 
 }
+.busquedas_recientes{
+    margin-top: 12px;
+    margin-right: 6.33vw;
+    margin-left: 6.33vw;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    button{
+        font-size: 16px;
+        margin-right: 8px;
+        color: $color-texto1;
+        background-color: $color-fondo3;
+        padding: 8px 7px;
+        border: 1px solid #4C2F99;
+        box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    }
+    
+}
 // ----- ----- ----- ----- ----- SECCION HOY TE SUGERIMOS ----- ----- ----- ----- ----- 
 .contenedor_sugerencias{
     margin-top: 16px;
@@ -368,6 +386,25 @@ body {
     padding-bottom: 2.6px; 
     padding-left: 7px;
 }
+.botones{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    button{
+        margin-bottom: 36px;
+        padding: 9px 39.5px;
+        background-color: $color-boton1;
+        font-size: 16px;
+        color: $color-texto3;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 18px;
+        border: 1px solid $color-borde4;
+        box-shadow: inset -1px -1px 0 0 $color-shadow-morado, inset 1px 1px 0 0 $color-shadow-blanco;
+        outline: none;
+    }
+    
+}
 // Primera vista
 .captura1{
 width: 47vw;
@@ -403,37 +440,47 @@ padding: 2px;
         }
     }
     .botones{
-        display: flex;
-        justify-content: flex-end;
-        margin-right: 5%;
         button{
-            margin-bottom: 36px;
-            padding: 9px 39.5px;
-            background-color: $color-boton1;
-            font-size: 16px;
-            color: $color-texto3;
-            letter-spacing: 0;
-            text-align: center;
-            line-height: 18px;
-            border: 1px solid $color-borde4;
-            box-shadow: inset -1px -1px 0 0 $color-shadow-morado, inset 1px 1px 0 0 $color-shadow-blanco;
-            outline: none;
             &:first-child{
                 background-color: $color-fondo1;
                 margin-right: 16px;
             }
         }
-        
     }
+
     
 }
 // Segunda vista
 .captura2{
-width: 60%;
+width: 50%;
 margin-left: auto;
 margin-right: auto;
 background: #E6E6E6;
 box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-padding: 2px;
+padding: 1px;
+    .vistaPrevia{
+        width: 95%;
+        height: 70%;
+        padding: 2px;
+        margin: 11px auto 24px auto;
+        background: #FFFFFF;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+            video{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .botones{
+       button{
+           &:first-child{
+               padding-left: 10px;
+               padding-right: 10px;
+               border-right: none;
+           }
+       }
+    }
 }
 

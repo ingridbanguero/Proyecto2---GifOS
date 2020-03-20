@@ -39,14 +39,32 @@ if(localStorage.getItem("dark-modo") === "true"){
 const searchForm = document.getElementById('search-form')
 const searchInput = document.getElementById('search-input')
 const resultsEl = document.getElementById('results')
-let q = 'tendency';
-search(q);
+const tendencias = document.getElementById('tendencias');
+let sugerenciaHTML = "";
+let historialSug = [];
+search('tendency');
+
+//Sugerencias
+const historial = document.getElementById('recientes');
 
 searchForm.addEventListener('submit', function(e){
     e.preventDefault()
     q = searchInput.value
     search(q);
 })
+
+function searchHistory(q){
+    historialSug.unshift(q);
+    console.log(historialSug);
+    if(historialSug.length>10){
+        historialSug.pop();
+    }
+    historial.innerHTML = "";
+    historialSug.forEach(element =>{
+        sugerenciaHTML = `<button>#${element}</button>`
+        historial.innerHTML += sugerenciaHTML;
+    })
+}
 
 function search(q){
     const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
@@ -74,7 +92,11 @@ function search(q){
             // console.log(tag);
             resultsHTML += `<div class="tendencia"> <img src="${url}" alt="${title}"><p>${tag}</p></div>`
         })
+        tendencias.innerHTML = q;
         resultsEl.innerHTML = resultsHTML
+        if(q !== "tendency"){
+            searchHistory(q);
+        }
     }).catch(function(err){
         console.log(err.message)
     })
@@ -95,6 +117,8 @@ menu_busqueda.addEventListener('click', (e)=> {
         window.location.href='#seccion_tendencias'
     }
 })
+// Etiquetas de busquedas recientes 
+
 
 // Gifs de seccion Hoy te sugerimos
 const sugerencias = document.getElementById('sugerencias');
@@ -113,7 +137,7 @@ async function getSug(){
         const title = element.title;
         imgSug[i].setAttribute("src", `${url}`);
         imgSug[i].setAttribute("alt", `${title}`);
-        titleSug[i].innerHTML = element;
+        titleSug[i].innerHTML = `#${element}`
         i++;
     }
 }
@@ -126,6 +150,7 @@ const sug = document.getElementById('sugerencias');
 sug.addEventListener('click', (e)=>{
     if(e.target.name === "buscar"){
         search(e.target.value);
+        tendencias.innerHTML = e.target.value;
         window.location.href='#seccion_tendencias';
     } else if (e.target.alt === "Eliminar sugerencia"){
         const hijo = e.target;
