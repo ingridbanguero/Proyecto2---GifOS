@@ -50,13 +50,12 @@ const btnCapturar = document.getElementById('btnCapturar');
 const btnListo = document.getElementById('btnListo');
 const btnRepetir = document.getElementById('btnRepetir');
 const btnSubir = document.getElementById('btnSubir');
-const vistaPrevia = document.getElementById('vistaPrevia');
 console.log(btnListo)
 
 btnComenzar.addEventListener('click', ()=>{
     vista1.style.display="none";
     vista2.style.display="block";
-    getStreamAndRecord()
+    getStreamAndRecord();
 })
 
 btnCapturar.addEventListener('click', (e)=>{
@@ -79,41 +78,45 @@ btnListo.addEventListener('click', (e)=>{
 btnRepetir.addEventListener('click', ()=>{
     opciones3.style.display="none";
     opciones1.style.display="block";
-    getStreamAndRecord()
 })
 
-let Myvideo = document.getElementById('video');
+const image = document.getElementById('imgGif');
+
 // Grabacion de video 
 
 function getStreamAndRecord(){
     navigator.mediaDevices.getUserMedia({
         audio: false,
-        video: {
-            height: {min: 400},
-            width: {min: 400}
-        }
-    }).then(async function(stream) {
-        video.srcObject = stream; 
-        video.play();
+        video: true
+    }).then(function(stream) {
+        image.autoplay = true;
+        image.srcObject = stream;
         let recorder = RecordRTC(stream, {
             type: 'gif',
             framRate: 1,
             quality: 10,
             hidden: 240,
-            /* onGifRecordingStarted: function(){
+            onGifRecordingStarted: function(){
                 console.log('started')
-            }, */
+            },
+            onGifPreview: function(gifURL){
+                image.src = gifURL;
+            }
         });
+        console.log(recorder);
         btnCapturar.addEventListener('click', (e)=>{
             recorder.startRecording();
+
+            btnListo.disabled = false;
         })
         
         btnListo.addEventListener('click', (e)=>{
-            recorder.stopRecording(function(url, type) {
-                document.querySelector(type).srcObject = null;
-                document.querySelector(type).src = url;
-                document.querySelector(type).play()
+            this.disabled = true;
+            recorder.stopRecording(function() {
+                image.src = URL.createObjectURL(recorder.getBlob());
+                recorder.save();
+                recorder = null;
             })
         });
     });
-}
+} 
