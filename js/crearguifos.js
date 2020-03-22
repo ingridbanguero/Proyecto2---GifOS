@@ -50,6 +50,7 @@ const btnCapturar = document.getElementById('btnCapturar');
 const btnListo = document.getElementById('btnListo');
 const btnRepetir = document.getElementById('btnRepetir');
 const btnSubir = document.getElementById('btnSubir');
+const vistaPrevia = document.getElementById('vistaPrevia');
 console.log(btnListo)
 
 btnComenzar.addEventListener('click', ()=>{
@@ -108,9 +109,10 @@ function getStreamAndRecord(){
         })
         
         btnListo.addEventListener('click', (e)=>{
-            recorder.stopRecording(function() {
-                let blob = recorder.getBlob();
-                let url = URL.createObjectURL(blob);
+            recorder.stopRecording(function(url, type) {
+                document.querySelector(type).srcObject = null;
+                document.querySelector(type).src = url;
+                document.querySelector(type).play()
             })
         });
     });
