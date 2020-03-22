@@ -41,7 +41,7 @@ const searchInput = document.getElementById('search-input')
 const resultsEl = document.getElementById('results')
 const tendencias = document.getElementById('tendencias');
 let sugerenciaHTML = "";
-let historialSug = [];
+let historialSug = []; // Este valor se debe guardar en el globalStorage
 search('tendency');
 
 //Sugerencias

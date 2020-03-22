@@ -188,6 +188,7 @@ body {
         align-items: center;
         margin-right: 15px;
         input {
+            outline: none;
             font-family: $fuente-texto;
             width: 94%;
             font-size: 16px;
@@ -210,7 +211,6 @@ body {
             line-height: 18px;
             width: 100px;
             height: 36px;
-            
             img {
                 width: 18%;
             }
@@ -235,6 +235,7 @@ body {
             color: #110038;
             letter-spacing: 0;
             line-height: 22px;
+            outline: none;
             &:first-child{
                 margin-top: 17px;
             }
@@ -253,7 +254,7 @@ body {
     justify-content: flex-start;
     flex-wrap: nowrap;
     button{
-        font-size: 16px;
+        font-size: 14px;
         margin-right: 8px;
         color: $color-texto1;
         background-color: $color-fondo3;
@@ -389,7 +390,7 @@ body {
 .botones{
     display: flex;
     justify-content: flex-end;
-    margin-right: 5%;
+    margin-right: 3%;
     button{
         margin-bottom: 36px;
         padding: 9px 39.5px;
@@ -451,8 +452,22 @@ padding: 2px;
     
 }
 // Segunda vista
+.timer{
+    margin-left: 3%;
+    height: 20px;
+    padding: 7px 13px 7px 21px;
+    font-size: 16px;
+    color: $color-texto2;
+    letter-spacing: 0;
+    line-height: 22px;
+    background: $color-fondo4;
+    border: 1px solid $color-borde3;
+    box-shadow: inset -2px -2px 0 0 $color-shadow-gris, inset 2px 2px 0 0 $color-shadow-azul;
+}
+
 .captura2{
 width: 50%;
+display: none;
 margin-left: auto;
 margin-right: auto;
 background: #E6E6E6;
@@ -473,14 +488,46 @@ padding: 1px;
             height: 100%;
         }
     }
-    .botones{
-       button{
-           &:first-child{
-               padding-left: 10px;
-               padding-right: 10px;
-               border-right: none;
-           }
-       }
+    .contenedor_opciones1{
+        display: block;
+        .botones{
+            button{
+                &:first-child{
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border-right: none;
+                }
+            }
+         }
+    }
+    .contenedor_opciones2{
+        display: none;
+        justify-content: space-between;
+        .botones{
+            button{
+                color: $color-texto1;
+                background-color: #FF6161;
+                &:first-child{
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border-right: none;
+                }
+            }
+         }
+    }
+    .contenedor_opciones3{
+        display: none;
+        justify-content: space-between;
+        .botones{
+            button{
+                color: $color-texto2;
+                margin-right: 10px;
+                padding: 9px 31.5px;
+                &:first-child{
+                    background-color: #FFF4FD;
+                    padding: 9px 13.5px;
+                }
+            }
+         }
     }
 }
-

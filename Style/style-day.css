@@ -136,6 +136,7 @@ body {
     align-items: center;
     margin-right: 15px; }
     .buscador .contenedor_buscador input {
+      outline: none;
       font-family: "Chakra Petch", sans-serif;
       width: 94%;
       font-size: 16px;
@@ -177,7 +178,8 @@ body {
       text-align: left;
       color: #110038;
       letter-spacing: 0;
-      line-height: 22px; }
+      line-height: 22px;
+      outline: none; }
       .buscador .busqueda button:first-child {
         margin-top: 17px; }
     .buscador .busqueda.active {
@@ -191,7 +193,7 @@ body {
   justify-content: flex-start;
   flex-wrap: nowrap; }
   .busquedas_recientes button {
-    font-size: 16px;
+    font-size: 14px;
     margin-right: 8px;
     color: #FFFFFF;
     background-color: #4180F6;
@@ -307,7 +309,7 @@ body {
 .botones {
   display: flex;
   justify-content: flex-end;
-  margin-right: 5%; }
+  margin-right: 3%; }
   .botones button {
     margin-bottom: 36px;
     padding: 9px 39.5px;
@@ -354,8 +356,21 @@ body {
     background-color: #FFF4FD;
     margin-right: 16px; }
 
+.timer {
+  margin-left: 3%;
+  height: 20px;
+  padding: 7px 13px 7px 21px;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  background: #FFFAFE;
+  border: 1px solid #808080;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #110038; }
+
 .captura2 {
   width: 50%;
+  display: none;
   margin-left: auto;
   margin-right: auto;
   background: #E6E6E6;
@@ -374,9 +389,31 @@ body {
       padding: 0;
       width: 100%;
       height: 100%; }
-  .captura2 .botones button:first-child {
-    padding-left: 10px;
-    padding-right: 10px;
-    border-right: none; }
+  .captura2 .contenedor_opciones1 {
+    display: block; }
+    .captura2 .contenedor_opciones1 .botones button:first-child {
+      padding-left: 10px;
+      padding-right: 10px;
+      border-right: none; }
+  .captura2 .contenedor_opciones2 {
+    display: none;
+    justify-content: space-between; }
+    .captura2 .contenedor_opciones2 .botones button {
+      color: #FFFFFF;
+      background-color: #FF6161; }
+      .captura2 .contenedor_opciones2 .botones button:first-child {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-right: none; }
+  .captura2 .contenedor_opciones3 {
+    display: none;
+    justify-content: space-between; }
+    .captura2 .contenedor_opciones3 .botones button {
+      color: #110038;
+      margin-right: 10px;
+      padding: 9px 31.5px; }
+      .captura2 .contenedor_opciones3 .botones button:first-child {
+        background-color: #FFF4FD;
+        padding: 9px 13.5px; }
 
 /*# sourceMappingURL=style-day.css.map */

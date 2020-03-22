@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
     <link id="estilo" type="text/css" rel="stylesheet" href="./Style/style-day.css">
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
 <body>
     <header>
         <div class="encabezado">
@@ -53,15 +54,31 @@
         </div>
     </section>
 
-    <section class="seccion captura2" id="vista 2">
+    <section class="seccion captura2" id="vista2">
         <div class="contenedor_vista2">
             <h1 class="tituloGuifos">Un Chequeo Antes de Empezar</h1>
             <div class="vistaPrevia">
                 <video autoplay id="video"></video>
             </div>
-            <div class="botones">
-                <button><img src="./Images/camera.svg" alt=""></button>
-                <button type="button" id="grabar">Capturar</button>
+            <div class="contenedor_opciones1" id="opciones1">
+                <div class="botones" id="btnCapturar">
+                    <button id="btnCap1"><img src="./Images/camera.svg" alt=""></button>
+                    <button id="btnCap2" type="button">Capturar</button>
+                </div>
+            </div>
+            <div class="contenedor_opciones2" id="opciones2">
+                <p class="timer">00:00:00:00</p>
+                <div class="botones" id="btnListo">
+                    <button id="btnCap1"><img src="./Images/recording.svg" alt=""></button>
+                    <button id="btnCap2" type="button">Listo</button>
+                </div>
+            </div>
+            <div class="contenedor_opciones3" id="opciones3">
+                <p class="timer">00:00:00:00</p>
+                <div class="botones">
+                    <button id="btnRepetir" type="button">Repetir Captura</button>
+                    <button id="btnSubir" type="button">Subir Guifo</button>
+                </div>
             </div>
         </div>
     </section>
