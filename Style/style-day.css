@@ -388,7 +388,14 @@ body {
       margin: 0;
       padding: 0;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      display: none; }
+    .captura2 .vistaPrevia video {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: block; }
   .captura2 .contenedor_opciones1 {
     display: block; }
     .captura2 .contenedor_opciones1 .botones button:first-child {

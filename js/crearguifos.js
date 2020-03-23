@@ -52,6 +52,7 @@ const btnRepetir = document.getElementById('btnRepetir');
 const btnSubir = document.getElementById('btnSubir');
 console.log(btnListo)
 
+
 btnComenzar.addEventListener('click', ()=>{
     vista1.style.display="none";
     vista2.style.display="block";
@@ -64,7 +65,6 @@ btnCapturar.addEventListener('click', (e)=>{
     }
     opciones1.style.display="none";
     opciones2.style.display="flex";
-    
 })
 
 btnListo.addEventListener('click', (e)=>{
@@ -78,42 +78,39 @@ btnListo.addEventListener('click', (e)=>{
 btnRepetir.addEventListener('click', ()=>{
     opciones3.style.display="none";
     opciones1.style.display="block";
+    getStreamAndRecord();
 })
 
 const image = document.getElementById('imgGif');
-
+const video = document.querySelector('video');
 // Grabacion de video 
 
 function getStreamAndRecord(){
     navigator.mediaDevices.getUserMedia({
-        audio: false,
         video: true
     }).then(function(stream) {
-        image.autoplay = true;
-        image.srcObject = stream;
+        video.srcObject = stream;
+        video.play();
         let recorder = RecordRTC(stream, {
             type: 'gif',
             framRate: 1,
             quality: 10,
             hidden: 240,
-            onGifRecordingStarted: function(){
-                console.log('started')
-            },
-            onGifPreview: function(gifURL){
-                image.src = gifURL;
-            }
         });
         console.log(recorder);
         btnCapturar.addEventListener('click', (e)=>{
             recorder.startRecording();
-
+            recorder.stream = stream;
             btnListo.disabled = false;
         })
         
         btnListo.addEventListener('click', (e)=>{
             this.disabled = true;
             recorder.stopRecording(function() {
+                video.style.display="none";
+                image.style.display="block";
                 image.src = URL.createObjectURL(recorder.getBlob());
+                recorder.stream.stop();
                 recorder.save();
                 recorder = null;
             })
