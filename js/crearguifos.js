@@ -50,7 +50,7 @@ const btnCapturar = document.getElementById('btnCapturar');
 const btnListo = document.getElementById('btnListo');
 const btnRepetir = document.getElementById('btnRepetir');
 const btnSubir = document.getElementById('btnSubir');
-const newGif = document.getElementById('newGif');
+const newGif = document.getElementById('nuevoGif');
 
 btnComenzar.addEventListener('click', ()=>{
     vista1.style.display="none";
@@ -99,6 +99,7 @@ function getStreamAndRecord(){
             hidden: 240,
         });
         let blob;
+        let urlgif;
         console.log(recorder);
         btnCapturar.addEventListener('click', (e)=>{
             recorder.startRecording();
@@ -138,13 +139,18 @@ function getStreamAndRecord(){
                 console.log(datar.data.id)
                 let idgif = datar.data.id;
                 console.log(datar);
-                let urlgif = `${url}?api_key=${api_key}&ids=${idgif}`
-                /* fetch(urlgif).then(res => res.json())
-                .then(data =>{
-                    console.log(data.data.url);
-                    newGif.setAttribute('src', data.data.url);
-                }) */
-            });
+                urlgif = `http://api.giphy.com/v1/gifs/${idgif}?api_key=${api_key}`
+                console.log(urlgif);
+                fetch(urlgif).then(res => res.json())
+                    .then(json =>{
+                    console.log(json);
+                    console.log(json.data.images.fixed_width.url);
+                    let urlImage = json.data.images.fixed_width.url;
+                    newGif.setAttribute('src', urlImage);
+                })
+            })
+
         });
+        
     }); 
 } 
