@@ -136,6 +136,7 @@ body {
     align-items: center;
     margin-right: 15px; }
     .buscador .contenedor_buscador input {
+      outline: none;
       font-family: "Chakra Petch", sans-serif;
       width: 94%;
       font-size: 16px;
@@ -177,11 +178,28 @@ body {
       text-align: left;
       color: #110038;
       letter-spacing: 0;
-      line-height: 22px; }
+      line-height: 22px;
+      outline: none; }
       .buscador .busqueda button:first-child {
         margin-top: 17px; }
     .buscador .busqueda.active {
       display: flex; }
+
+.busquedas_recientes {
+  margin-top: 12px;
+  margin-right: 6.33vw;
+  margin-left: 6.33vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap; }
+  .busquedas_recientes button {
+    font-size: 14px;
+    margin-right: 8px;
+    color: #FFFFFF;
+    background-color: #2E32FB;
+    padding: 8px 7px;
+    border: 1px solid #4C2F99;
+    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF; }
 
 .contenedor_sugerencias {
   margin-top: 16px;
@@ -248,6 +266,7 @@ body {
     height: 296px;
     margin-bottom: 10px; }
     .contenedor_tendencias .tendencia p {
+      display: flex;
       background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
       font-family: "Chakra Petch", sans-serif;
       font-size: 14px;
@@ -277,6 +296,33 @@ body {
       border: 1px dotted #110038;
       margin: 2px; }
 
+.tituloGuifos {
+  font-weight: 700;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+  padding-top: 3.4px;
+  padding-bottom: 2.6px;
+  padding-left: 7px; }
+
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3%; }
+  .botones button {
+    margin-bottom: 36px;
+    padding: 9px 39.5px;
+    background-color: #EE3EFE;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    outline: none; }
+
 .captura1 {
   width: 47vw;
   background: #E6E6E6;
@@ -284,16 +330,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 2px; }
-  .captura1 h1 {
-    font-weight: 700;
-    font-size: 14px;
-    color: #FFFFFF;
-    letter-spacing: 0;
-    background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
-    padding-top: 3.4px;
-    padding-bottom: 2.6px;
-    padding-left: 7px;
-    margin: 2px; }
   .captura1 .titulo_captura {
     display: flex;
     align-items: center;
@@ -316,24 +352,75 @@ body {
     .captura1 .instrucciones ol li {
       list-style: none;
       line-height: 28px; }
-  .captura1 .botones {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 5%; }
-    .captura1 .botones button {
-      margin-bottom: 36px;
-      padding: 9px 39.5px;
-      background-color: #EE3EFE;
-      font-size: 16px;
+  .captura1 .botones button:first-child {
+    background-color: #120238;
+    margin-right: 16px; }
+
+.timer {
+  margin-left: 3%;
+  height: 20px;
+  padding: 7px 13px 7px 21px;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  background: #CCCCCC;
+  border: 1px solid #808080;
+  box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #110038; }
+
+.captura2 {
+  width: 50%;
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  padding: 1px; }
+  .captura2 .vistaPrevia {
+    width: 95%;
+    height: 70%;
+    padding: 2px;
+    margin: 11px auto 24px auto;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000; }
+    .captura2 .vistaPrevia img {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: none; }
+    .captura2 .vistaPrevia video {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: block; }
+  .captura2 .contenedor_opciones1 {
+    display: block; }
+    .captura2 .contenedor_opciones1 .botones button:first-child {
+      padding-left: 10px;
+      padding-right: 10px;
+      border-right: none; }
+  .captura2 .contenedor_opciones2 {
+    display: none;
+    justify-content: space-between; }
+    .captura2 .contenedor_opciones2 .botones button {
       color: #FFFFFF;
-      letter-spacing: 0;
-      text-align: center;
-      line-height: 18px;
-      border: 1px solid #110038;
-      box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-      outline: none; }
-      .captura1 .botones button:first-child {
-        background-color: #120238;
-        margin-right: 16px; }
+      background-color: #FF6161; }
+      .captura2 .contenedor_opciones2 .botones button:first-child {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-right: none; }
+  .captura2 .contenedor_opciones3 {
+    display: none;
+    justify-content: space-between; }
+    .captura2 .contenedor_opciones3 .botones button {
+      color: #110038;
+      margin-right: 10px;
+      padding: 9px 31.5px; }
+      .captura2 .contenedor_opciones3 .botones button:first-child {
+        background-color: #FFF4FD;
+        padding: 9px 13.5px; }
 
 /*# sourceMappingURL=style-night.css.map */

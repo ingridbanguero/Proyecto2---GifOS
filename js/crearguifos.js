@@ -50,8 +50,7 @@ const btnCapturar = document.getElementById('btnCapturar');
 const btnListo = document.getElementById('btnListo');
 const btnRepetir = document.getElementById('btnRepetir');
 const btnSubir = document.getElementById('btnSubir');
-console.log(btnListo)
-
+const newGif = document.getElementById('newGif');
 
 btnComenzar.addEventListener('click', ()=>{
     vista1.style.display="none";
@@ -86,6 +85,8 @@ const video = document.querySelector('video');
 // Grabacion de video 
 
 function getStreamAndRecord(){
+    video.style.display="block";
+    image.style.display="none";
     navigator.mediaDevices.getUserMedia({
         video: true
     }).then(function(stream) {
@@ -97,6 +98,7 @@ function getStreamAndRecord(){
             quality: 10,
             hidden: 240,
         });
+        let blob;
         console.log(recorder);
         btnCapturar.addEventListener('click', (e)=>{
             recorder.startRecording();
@@ -109,11 +111,40 @@ function getStreamAndRecord(){
             recorder.stopRecording(function() {
                 video.style.display="none";
                 image.style.display="block";
-                image.src = URL.createObjectURL(recorder.getBlob());
+                blob = recorder.getBlob();
+                image.src = URL.createObjectURL(blob);
+                console.log(blob);
+                console.log(recorder);
                 recorder.stream.stop();
-                recorder.save();
                 recorder = null;
             })
         });
-    });
+
+        btnSubir.addEventListener('click', (e) =>{
+            let form = new FormData();
+            form.append('file', blob, 'GifRecorder.gif')
+            console.log(form.get('file'))
+
+            const api_key = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF'
+            const url = `http://upload.giphy.com/v1/gifs`
+
+            form.append('api_key', api_key)
+
+            fetch(url,{
+                method:'POST',
+                body: form,
+            }).then(res=>res.json())
+            .then(datar=>{
+                console.log(datar.data.id)
+                let idgif = datar.data.id;
+                console.log(datar);
+                let urlgif = `${url}?api_key=${api_key}&ids=${idgif}`
+                /* fetch(urlgif).then(res => res.json())
+                .then(data =>{
+                    console.log(data.data.url);
+                    newGif.setAttribute('src', data.data.url);
+                }) */
+            });
+        });
+    }); 
 } 

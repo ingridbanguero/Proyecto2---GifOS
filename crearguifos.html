@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
     <link id="estilo" type="text/css" rel="stylesheet" href="./Style/style-day.css">
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
 <body>
     <header>
         <div class="encabezado">
@@ -33,9 +32,9 @@
         </div>
     </header>
     <section id="vista1" class=" seccion captura1">
-        <h1 class="tituloGuifos">Crear Guifos</h1>
+        <h2 class="tituloGuifos">Crear Guifos</h2>
         <div class="titulo_captura">
-            <img src="./Images/window img.png" alt="Imagen de una ventana de window">
+            <img src="./Images/window_img.png" alt="Imagen de una ventana de window">
             <h2>Aquí podrás crear tus propios guifos</h2>
         </div>
         <div class="instrucciones">
@@ -56,30 +55,104 @@
 
     <section class="seccion captura2" id="vista2">
         <div class="contenedor_vista2">
-            <h1 class="tituloGuifos">Un Chequeo Antes de Empezar</h1>
+            <h2 class="tituloGuifos">Un Chequeo Antes de Empezar</h2>
             <div class="vistaPrevia" id="vistaPrevia">
-                <video src="" id="video"></video>
-                <img id="imgGif">
+                <video src="./" id="video"></video>
+                <img id="imgGif" src="./" alt="Previsualizacion del gif grabado">
             </div>
             <div class="contenedor_opciones1" id="opciones1">
                 <div class="botones" id="btnCapturar">
-                    <button id="btnCap1"><img src="./Images/camera.svg" alt=""></button>
-                    <button id="btnCap2" type="button">Capturar</button>
+                    <button><img src="./Images/camera.svg" alt="Imagen representativa de una camara"></button>
+                    <button type="button">Capturar</button>
                 </div>
             </div>
             <div class="contenedor_opciones2" id="opciones2">
                 <p class="timer">00:00:00:00</p>
                 <div class="botones" id="btnListo">
-                    <button id="btnCap1"><img src="./Images/recording.svg" alt=""></button>
-                    <button id="btnCap2" type="button">Listo</button>
+                    <button><img src="./Images/recording.svg" alt=""></button>
+                    <button type="button">Listo</button>
                 </div>
             </div>
             <div class="contenedor_opciones3" id="opciones3">
                 <p class="timer">00:00:00:00</p>
+                <div class="contenedor_animacion">
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                </div>
                 <div class="botones">
                     <button id="btnRepetir" type="button">Repetir Captura</button>
                     <button id="btnSubir" type="button">Subir Guifo</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion subirGif">
+        <div class="contenedor_subirGif">
+            <h2 class="tituloGuifos">Subiendo Guifo</h2>
+            <div class="contenedor_content">
+                <img src="./Images/globe_img.png" alt="Imagen representativa de un globo terraqueo">
+                <h2><b>Estamos subiendo tu guifo...</b></h2>
+                <div class="contenedor_animacion">
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo activo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                    <div class="rectangulo inactivo"></div>
+                </div>
+                <p>Tiempo restante <del>38 años</del> algunos minutos</p>
+            </div>
+            <div class="contenedor_opciones">
+                <div class="botones">
+                    <button>Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion gifSubido">
+        <h2 class="tituloGuifos">Guifo Subido Con Éxito</h2>
+        <div class="contenedor_content">
+            <div class="content">
+                <img id="nuevoGif" src="./" alt="Visualización del gif subido con exito a Giphy">
+                <div class="botones subirGuifo">
+                    <p><b>Guifo creado con éxito</b></p>
+                    <button>Copiar Enlace Guifo</button>
+                    <button>Descargar Guifo</button>
+                </div>
+            </div>
+            <div class="botones btnCerrar">
+                <button class="cerrar">Cerrar</button>
             </div>
         </div>
     </section>
@@ -89,6 +162,8 @@
             <h2 id="misguifos">Mis GuifOS</h2>
         </div>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
     <script src="./js/crearguifos.js"></script>
 </body>
 </html>
