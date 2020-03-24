@@ -438,6 +438,7 @@ body {
 
 .subirGif {
   font-family: "Chakra Petch", sans-serif;
+  display: none;
   width: 60vw;
   background: #E6E6E6;
   box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
@@ -471,6 +472,7 @@ body {
       margin-bottom: 138px; }
 
 .gifSubido {
+  display: none;
   font-family: "Chakra Petch", sans-serif;
   width: 50vw;
   background: #E6E6E6;

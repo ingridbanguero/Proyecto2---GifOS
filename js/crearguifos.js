@@ -42,6 +42,8 @@ window.addEventListener('click', ()=>{
 // Cambio de vistas
 const vista1 = document.getElementById('vista1');
 const vista2 = document.getElementById('vista2');
+const vista3 = document.getElementById('vista3');
+const vista4 = document.getElementById('vista4');
 const opciones1 = document.getElementById('opciones1');
 const opciones2 = document.getElementById('opciones2');
 const opciones3 = document.getElementById('opciones3');
@@ -122,6 +124,8 @@ function getStreamAndRecord(){
         });
 
         btnSubir.addEventListener('click', (e) =>{
+            vista2.style.display="none";
+            vista3.style.display="block";
             let form = new FormData();
             form.append('file', blob, 'GifRecorder.gif')
             console.log(form.get('file'))
@@ -147,6 +151,9 @@ function getStreamAndRecord(){
                     console.log(json.data.images.fixed_width.url);
                     let urlImage = json.data.images.fixed_width.url;
                     newGif.setAttribute('src', urlImage);
+                    vista3.style.display="none";
+                    vista4.style.display="block";
+                    // Poner el local Storage
                 })
             })
 

@@ -560,6 +560,7 @@ padding: 1px;
 
 .subirGif{
     font-family: $fuente-texto;
+    display: none;
     width: 60vw;
     background: #E6E6E6;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
@@ -599,6 +600,7 @@ padding: 1px;
 
 // Vista "Guifo subido con exito"
 .gifSubido{
+    display: none;
     font-family: $fuente-texto;
     width: 50vw;
     background: #E6E6E6;
