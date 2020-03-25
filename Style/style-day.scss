@@ -3,7 +3,7 @@ $color-fondo2: #FFFAFE;
 $color-fondo3: #4180F6;
 $color-fondo4: #FFFAFE;
 $color-texto1: #FFFFFF;
-$color-texto2: #110038; // Este tiene problemas
+$color-texto2: #110038;
 $color-texto3: #110038;
 $color-gradiente: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
 $color-borde1: #E6BBE2 ;
@@ -634,5 +634,22 @@ padding: 1px;
                 background: #FFF4FD;
             }
         }     
+    }
+}
+.contenedor_misgifs{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .misGuifos{
+        width: 24%;
+        height: 296px;
+        margin: 0px 0.5% 10px 0.5%;
+        img{
+            width: 100%;
+            height: 100%;
+            margin: auto;
+        }
     }
 }

@@ -2,7 +2,6 @@
 const btnTema = document.querySelector('#tema');
 const subTemas = document.querySelector('#subtemas');
 
-
 btnTema.addEventListener('click', (e)=> {
     subTemas.classList.toggle('active');
     e.stopPropagation();
@@ -52,6 +51,7 @@ const btnCapturar = document.getElementById('btnCapturar');
 const btnListo = document.getElementById('btnListo');
 const btnRepetir = document.getElementById('btnRepetir');
 const btnSubir = document.getElementById('btnSubir');
+const btnDescargar = document.getElementById('btnDescargar')
 const newGif = document.getElementById('nuevoGif');
 
 btnComenzar.addEventListener('click', ()=>{
@@ -60,30 +60,25 @@ btnComenzar.addEventListener('click', ()=>{
     getStreamAndRecord();
 })
 
-btnCapturar.addEventListener('click', (e)=>{
-    if(e.target.id !== "btnCapturar"){
-        console.log('Presionaste un boton y se empezara a grabar'); 
-    }
-    opciones1.style.display="none";
-    opciones2.style.display="flex";
-})
 
-btnListo.addEventListener('click', (e)=>{
-    if(e.target.id !== "btnListo"){
-        console.log('Presionaste un boton y se va a guardar lo que grabaste'); 
-    }
-    opciones2.style.display="none";
-    opciones3.style.display="flex";
-})
-
-btnRepetir.addEventListener('click', ()=>{
-    opciones3.style.display="none";
-    opciones1.style.display="block";
-    getStreamAndRecord();
-})
 
 const image = document.getElementById('imgGif');
 const video = document.querySelector('video');
+let gifsEl = document.getElementById('misgifs');
+
+
+let gifsGuardados = localStorage.getItem('gif');
+let misGifs = [];
+misGifs = JSON.parse(gifsGuardados);
+if(misGifs !== null){
+    misGifs.forEach(element =>{
+        gifHTML = `<div class="misGuifos"><img src="${element}" alt="Gif subido"></div>`
+        gifsEl.innerHTML += gifHTML;
+    })
+} else{
+    misGifs = [];
+}
+
 // Grabacion de video 
 
 function getStreamAndRecord(){
@@ -104,23 +99,33 @@ function getStreamAndRecord(){
         let urlgif;
         console.log(recorder);
         btnCapturar.addEventListener('click', (e)=>{
-            recorder.startRecording();
-            recorder.stream = stream;
-            btnListo.disabled = false;
+            if(e.target.id !== "btnCapturar"){
+                console.log('Presionaste un boton y se empezara a grabar'); 
+                opciones1.style.display="none";
+                opciones2.style.display="flex";
+                recorder.startRecording();
+                recorder.stream = stream;
+                btnListo.disabled = false;
+            }
+            
         })
         
         btnListo.addEventListener('click', (e)=>{
-            this.disabled = true;
-            recorder.stopRecording(function() {
-                video.style.display="none";
-                image.style.display="block";
-                blob = recorder.getBlob();
-                image.src = URL.createObjectURL(blob);
-                console.log(blob);
-                console.log(recorder);
-                recorder.stream.stop();
-                recorder = null;
-            })
+            if(e.target.id !== "btnListo"){
+                console.log('Presionaste un boton y se va a guardar lo que grabaste'); 
+                opciones2.style.display="none";
+                opciones3.style.display="flex";
+                this.disabled = true;
+                recorder.stopRecording(function() {
+                    video.style.display="none";
+                    image.style.display="block";
+                    blob = recorder.getBlob();
+                    image.src = URL.createObjectURL(blob);
+                    console.log(blob);
+                    console.log(recorder);
+                    
+                })
+            }
         });
 
         btnSubir.addEventListener('click', (e) =>{
@@ -153,11 +158,30 @@ function getStreamAndRecord(){
                     newGif.setAttribute('src', urlImage);
                     vista3.style.display="none";
                     vista4.style.display="block";
-                    // Poner el local Storage
+                    añadirGif(urlImage);
                 })
             })
-
         });
+        btnDescargar.addEventListener('click', ()=>{
+            recorder.save();
+        })
+        btnRepetir.addEventListener('click', ()=>{
+            opciones3.style.display="none";
+            opciones1.style.display="block";
+            recorder.stream.stop()
+            recorder.destroy();
+            recorder = null;
+            getStreamAndRecord();
+        })
         
     }); 
 } 
+
+function añadirGif(urlImage){
+    misGifs.push(urlImage);
+    misGifs.forEach(element =>{
+        gifHTML = `<div class="misGuifos"><img src="${element}" alt="Gif subido"></div>`
+        gifsEl.innerHTML += gifHTML;
+    })
+    localStorage.setItem('gif', JSON.stringify(misGifs));
+}

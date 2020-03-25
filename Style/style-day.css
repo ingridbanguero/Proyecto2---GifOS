@@ -500,4 +500,19 @@ body {
       margin-bottom: 15px;
       background: #FFF4FD; }
 
+.contenedor_misgifs {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap; }
+  .contenedor_misgifs .misGuifos {
+    width: 24%;
+    height: 296px;
+    margin: 0px 0.5% 10px 0.5%; }
+    .contenedor_misgifs .misGuifos img {
+      width: 100%;
+      height: 100%;
+      margin: auto; }
+
 /*# sourceMappingURL=style-day.css.map */

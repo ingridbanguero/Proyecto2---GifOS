@@ -34,6 +34,9 @@ if(localStorage.getItem("dark-modo") === "true"){
     estilo.setAttribute("href", "./Style/style-day.css");
     logo.setAttribute("src","./Images/gifOF_logo.png");
 }
+// Recuperacion datos del historial de sugerencia de busqueda
+
+
 
 // Integración con la API por el buscador
 const searchForm = document.getElementById('search-form')
@@ -41,16 +44,27 @@ const searchInput = document.getElementById('search-input')
 const resultsEl = document.getElementById('results')
 const tendencias = document.getElementById('tendencias');
 let sugerenciaHTML = "";
-let historialSug = []; // Este valor se debe guardar en el globalStorage
-search('tendency');
+ // Este valor se debe guardar en el localStorage
+search('Trending');
 
 //Sugerencias
 const historial = document.getElementById('recientes');
+
+
 
 searchForm.addEventListener('submit', function(e){
     e.preventDefault()
     q = searchInput.value
     search(q);
+})
+
+// Barra, historial busquedas recientes
+let historialGuardado = localStorage.getItem('historial')
+let historialSug = [];
+historialSug = JSON.parse(historialGuardado);
+historialSug.forEach(element =>{
+    sugerenciaHTML = `<button>#${element}</button>`
+    historial.innerHTML += sugerenciaHTML;
 })
 
 function searchHistory(q){
@@ -64,6 +78,7 @@ function searchHistory(q){
         sugerenciaHTML = `<button>#${element}</button>`
         historial.innerHTML += sugerenciaHTML;
     })
+    localStorage.setItem('historial', JSON.stringify(historialSug));
 }
 
 function search(q){
@@ -94,7 +109,7 @@ function search(q){
         })
         tendencias.innerHTML = q;
         resultsEl.innerHTML = resultsHTML
-        if(q !== "tendency"){
+        if(q !== "Trending"){
             searchHistory(q);
         }
     }).catch(function(err){

@@ -368,6 +368,19 @@ body {
   border: 1px solid #808080;
   box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #110038; }
 
+.contenedor_animacion {
+  display: flex; }
+  .contenedor_animacion .rectangulo {
+    width: 12px;
+    height: 20px;
+    border: 1px solid #CECCCC;
+    border-bottom: none;
+    border-top: none; }
+  .contenedor_animacion .activo {
+    background: #F7C9F3; }
+  .contenedor_animacion .inactivo {
+    background: #999999; }
+
 .captura2 {
   width: 50%;
   display: none;
@@ -422,5 +435,84 @@ body {
       .captura2 .contenedor_opciones3 .botones button:first-child {
         background-color: #FFF4FD;
         padding: 9px 13.5px; }
+
+.subirGif {
+  font-family: "Chakra Petch", sans-serif;
+  display: none;
+  width: 60vw;
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px; }
+  .subirGif .contenedor_content {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 95%;
+    height: 90%;
+    height: 70%;
+    padding: 2px;
+    margin: 11px auto 24px auto;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .subirGif .contenedor_content img {
+      margin-top: 139px; }
+    .subirGif .contenedor_content h2 {
+      font-size: 16px;
+      margin-top: 8px;
+      margin-bottom: 41px; }
+    .subirGif .contenedor_content p {
+      font-size: 12px;
+      color: rgba(17, 0, 56, 0.64);
+      margin-top: 10px;
+      margin-bottom: 138px; }
+
+.gifSubido {
+  display: none;
+  font-family: "Chakra Petch", sans-serif;
+  width: 50vw;
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px; }
+  .gifSubido .contenedor_content .content {
+    display: flex;
+    align-items: flex-start; }
+    .gifSubido .contenedor_content .content img {
+      width: 50%;
+      height: 191px;
+      background: #FFFFFF;
+      border: 1px solid #979797;
+      box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+      margin: 27px 27px 64px 27px; }
+  .gifSubido .contenedor_content .subirGuifo {
+    display: flex;
+    flex-direction: column; }
+    .gifSubido .contenedor_content .subirGuifo p {
+      margin-top: 49px; }
+    .gifSubido .contenedor_content .subirGuifo button {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      background: #FFF4FD; }
+
+.contenedor_misgifs {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap; }
+  .contenedor_misgifs .misGuifos {
+    width: 24%;
+    height: 296px;
+    margin: 0px 0.5% 10px 0.5%; }
+    .contenedor_misgifs .misGuifos img {
+      width: 100%;
+      height: 100%;
+      margin: auto; }
 
 /*# sourceMappingURL=style-night.css.map */
