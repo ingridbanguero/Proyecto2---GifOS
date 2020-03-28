@@ -35,10 +35,11 @@ if(misGifs !== null){
     misGifs = [];
 }
 
+// Variables globales para la funcionalidad de grabar video
 let recorder; 
 let blob; 
-let urlgif;
-// Eventos 
+
+// Eventos de los botones
 btnComenzar.addEventListener('click', (e)=>{
     vista1.style.display="none";
     vista2.style.display="block";
@@ -66,7 +67,6 @@ btnCapturar.addEventListener('click', (e)=>{
         opciones1.style.display="none";
         opciones2.style.display="flex";
         recorder.startRecording();
-/*         recorder.stream = stream; */
     }
 })
 
@@ -114,7 +114,7 @@ btnSubir.addEventListener('click', (e) =>{
         console.log(datar.data.id)
         let idgif = datar.data.id;
         console.log(datar);
-        urlgif = `http://api.giphy.com/v1/gifs/${idgif}?api_key=${api_key}`
+        let urlgif = `http://api.giphy.com/v1/gifs/${idgif}?api_key=${api_key}`
         console.log(urlgif);
         fetch(urlgif).then(res => res.json())
             .then(json =>{
@@ -134,11 +134,7 @@ btnDescargar.addEventListener('click', ()=>{
     recorder.save();
 })
 
-// LA FUNCION NO ESTA TERMINANDO Y YO ESTOY INICIANDO OTRA Y OTRA CADA VEZ QUE LA REPITO
-
-
-// Grabacion de video 
-
+// Almacenamiento al local Storage de los gifs grabados y subidos. 
 function añadirGif(urlImage){
     misGifs.push(urlImage);
     gifHTML = `<div class="misGuifos"><img src="${urlImage}" alt="Gif subido"></div>`

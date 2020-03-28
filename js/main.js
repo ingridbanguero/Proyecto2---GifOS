@@ -1,20 +1,13 @@
-// Recuperacion datos del historial de sugerencia de busqueda
-
-
-
 // Integración con la API por el buscador
 const searchForm = document.getElementById('search-form')
 const searchInput = document.getElementById('search-input')
 const resultsEl = document.getElementById('results')
 const tendencias = document.getElementById('tendencias');
 let sugerenciaHTML = "";
- // Este valor se debe guardar en el localStorage
+
+ 
+// Este valor se debe guardar en el localStorage
 search('Trending');
-
-//Sugerencias
-const historial = document.getElementById('recientes');
-
-
 
 searchForm.addEventListener('submit', function(e){
     e.preventDefault()
@@ -23,6 +16,7 @@ searchForm.addEventListener('submit', function(e){
 })
 
 // Barra, historial busquedas recientes
+const historial = document.getElementById('recientes');
 let historialGuardado = localStorage.getItem('historial')
 let historialSug = [];
 historialSug = JSON.parse(historialGuardado);
@@ -45,11 +39,12 @@ function searchHistory(q){
     localStorage.setItem('historial', JSON.stringify(historialSug));
 }
 
+//  SECCION TENDENCIAS Y SU INTEGRACION CON EL BUSCADOR
 function search(q){
     const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
     const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=12`
     fetch(path).then(function(res) {
-        return res.json() // Promise
+        return res.json()
     }).then(function(json){
         // console.log(json.data[0].images.fixed_width.url)
         let resultsHTML = ''
@@ -81,7 +76,7 @@ function search(q){
     })
 }
 
-// Menu sugerencia de resultados de busqueda
+// MENU SUGERENCIA DE RESULTADOS DE BUSQUEDA
 const menu_busqueda = document.querySelector('#busqueda');
 
 searchInput.addEventListener("click",(e)=>{
@@ -96,17 +91,50 @@ menu_busqueda.addEventListener('click', (e)=> {
         window.location.href='#seccion_tendencias'
     }
 })
-// Etiquetas de busquedas recientes 
 
+window.addEventListener('click', ()=>{
+    menu_busqueda.classList.remove('active');
+})
 
-// Gifs de seccion Hoy te sugerimos
+// SECCION HOY TE SUGERIMOS
 const sugerencias = document.getElementById('sugerencias');
 const imgSug = document.getElementsByClassName('imgSug');
 const titleSug = document.getElementsByClassName('titleSug');
 let sugeridos = ["Jonathan Van Ness", "Sailor Mercury", "Glitter", "Unicorn and Raibows"];
 let i = 0;
 
-async function getSug(){
+async function getSugerencias(){
+    const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
+    const path =`http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}`
+    const resp = await fetch(path);
+    const datos = await resp.json();
+    for(i=0; i<=3; i++){
+        let url = datos.data[i].images.fixed_width.url;
+        let title = datos.data[i].title;
+        let tag = '';
+        let arrayTitle = title.split(" ");
+            for (let i=0; i<=3; i++){
+                if (arrayTitle[i] !== "GIF" && arrayTitle[i] !== "by" && arrayTitle[i] !== undefined){
+                    arrayTitle[i] = arrayTitle[i];
+                    tag += arrayTitle[i] + " "
+                }
+            } 
+        const sugHTML = `<div class="sugerencia">
+            <div class="titulo_sugerencia">
+                <h3 class="titleSug">#${tag}</h3>
+                <button name="eliminar"><img src="./Images/button3.svg" alt="Eliminar sugerencia"></button>
+            </div>
+            <div class="imagen_sugerencia">
+                <img class="imgSug" src="${url}" alt="">
+                <button name="buscar" value="${tag}" >Ver más...</button>
+            </div>
+        </div>`
+        sugerencias.innerHTML += sugHTML;
+    }
+}
+getSugerencias();
+
+/* async function getSug(){
     for (element of sugeridos){
         const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
         const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${element}&limit=12`
@@ -120,12 +148,10 @@ async function getSug(){
         i++;
     }
 }
-getSug();
+getSug(); */
 
-// Funcionamiento botones "Ver Mas..."
+// Funcionamiento botones "Ver Mas..." y boton "X"
 const sug = document.getElementById('sugerencias');
-
-
 sug.addEventListener('click', (e)=>{
     if(e.target.name === "buscar"){
         search(e.target.value);
@@ -137,7 +163,4 @@ sug.addEventListener('click', (e)=>{
         padre.parentNode.remove(padre);
     }
 })
-// Cerrar menu de sugerencias
-window.addEventListener('click', ()=>{
-    menu_busqueda.classList.remove('active');
-})
+
