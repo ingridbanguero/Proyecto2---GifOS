@@ -14,6 +14,7 @@ const btnListo = document.getElementById('btnListo');
 const btnRepetir = document.getElementById('btnRepetir');
 const btnSubir = document.getElementById('btnSubir');
 const btnDescargar = document.getElementById('btnDescargar')
+const btnCopiar = document.getElementById('btnCopiar');
 
 // Elementos para grabar y contener el gif
 const image = document.getElementById('imgGif');
@@ -38,6 +39,7 @@ if(misGifs !== null){
 // Variables globales para la funcionalidad de grabar video
 let recorder; 
 let blob; 
+let urlGiphy;
 
 // Eventos de los botones
 btnComenzar.addEventListener('click', (e)=>{
@@ -119,6 +121,7 @@ btnSubir.addEventListener('click', (e) =>{
         fetch(urlgif).then(res => res.json())
             .then(json =>{
             console.log(json);
+            urlGiphy = json.data.url;
             console.log(json.data.images.fixed_width.url);
             let urlImage = json.data.images.fixed_width.url;
             newGif.setAttribute('src', urlImage);
@@ -132,7 +135,22 @@ btnSubir.addEventListener('click', (e) =>{
 
 btnDescargar.addEventListener('click', ()=>{
     recorder.save();
+});
+
+btnCopiar.addEventListener('click', ()=>{
+    copiarPortapaleles();
+    console.log('Elemento copiado al portapales');
+    
 })
+// Funcion para copiar el link al portapaleles
+function copiarPortapaleles(){
+    let aux = document.createElement("input");
+    aux.setAttribute('value', urlGiphy);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand('copy');
+    document.body.removeChild(aux);
+}
 
 // Almacenamiento al local Storage de los gifs grabados y subidos. 
 function añadirGif(urlImage){

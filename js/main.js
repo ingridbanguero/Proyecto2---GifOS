@@ -5,29 +5,74 @@ const resultsEl = document.getElementById('results')
 const tendencias = document.getElementById('tendencias');
 let sugerenciaHTML = "";
 
- 
-// Este valor se debe guardar en el localStorage
+// Busqueda por defecto al iniciar la pagina
 search('Trending');
 
+// Iniciar busqueda mediante el submit
 searchForm.addEventListener('submit', function(e){
-    e.preventDefault()
-    q = searchInput.value
+    e.preventDefault();
+    q = searchInput.value;
     search(q);
 })
 
-// Barra, historial busquedas recientes
+// Botones de sugeridos dinamicos
+const sug1 = document.getElementById('sugerido1');
+const sug2 = document.getElementById('sugerido2');
+const sug3 = document.getElementById('sugerido3');
+const sugest = document.getElementsByClassName('sug');
+
+searchForm.addEventListener('keyup', ()=>{
+    q = searchInput.value;
+        console.log(q);
+        const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
+        const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=3`
+        fetch(path).then(function(res) {
+            return res.json()
+        }).then(function(json){
+            for (i=0; i<=2; i++){
+                console.log(json)
+                if(json.data[i] !== undefined){
+                    let title = json.data[i].title;
+                    let tag = '';
+                    let arrayTitle = title.split(" ");
+                    for (let i=0; i<=3; i++){
+                        if (arrayTitle[i] !== "GIF" && arrayTitle[i] !== "by" && arrayTitle[i] !== undefined){
+                            arrayTitle[i] = arrayTitle[i];
+                            tag += arrayTitle[i] + " "
+                        }
+                    } 
+                    console.log(tag)
+                    sugest[i].innerHTML = tag;
+                    sugest[i].value = tag;
+                }
+            };
+        })
+})
+
+// Barra historial busquedas recientes
 const historial = document.getElementById('recientes');
 let historialGuardado = localStorage.getItem('historial')
 let historialSug = [];
 historialSug = JSON.parse(historialGuardado);
-historialSug.forEach(element =>{
-    sugerenciaHTML = `<button>#${element}</button>`
-    historial.innerHTML += sugerenciaHTML;
+if (historialSug !== null){
+    historialSug.forEach(element =>{
+        sugerenciaHTML = `<button>#${element}</button>`
+        historial.innerHTML += sugerenciaHTML;
+    })
+} else {
+    historialSug = [];
+}
+
+historial.addEventListener('click', (e)=>{
+    if (e.target.id !== "historial"){
+        q = e.target.innerText.slice(1);
+        search(q);
+        window.location.href='#seccion_tendencias'
+    }
 })
 
 function searchHistory(q){
     historialSug.unshift(q);
-    console.log(historialSug);
     if(historialSug.length>10){
         historialSug.pop();
     }
@@ -50,11 +95,12 @@ function search(q){
         let resultsHTML = ''
         json.data.forEach(function(obj){
             // console.log(obj)
+            const height = obj.images.fixed_width.height;
+            const width = obj.images.fixed_width.width;
             // console.log(obj.images.fixed_width.url)
             const url = obj.images.fixed_width.url
             const title = obj.title
             let tag = '';
-            // console.log(title);
             let arrayTitle = title.split(" ");
             for (let i=0; i<=3; i++){
                 if (arrayTitle[i] !== "GIF" && arrayTitle[i] !== "by" && arrayTitle[i] !== undefined){
@@ -64,12 +110,18 @@ function search(q){
             } 
             // console.log(arrayTitle);
             // console.log(tag);
-            resultsHTML += `<div class="tendencia"> <img src="${url}" alt="${title}"><p>${tag}</p></div>`
+
+            resultsHTML += `<div class="tendencia"><img src="${url}" alt="${title}"><p>${tag}</p></div>`
+            
+            resultsEl.innerHTML = resultsHTML
+
         })
-        tendencias.innerHTML = q;
-        resultsEl.innerHTML = resultsHTML
+        
+        
+        
         if(q !== "Trending"){
             searchHistory(q);
+            tendencias.innerHTML = q;
         }
     }).catch(function(err){
         console.log(err.message)
@@ -133,22 +185,6 @@ async function getSugerencias(){
     }
 }
 getSugerencias();
-
-/* async function getSug(){
-    for (element of sugeridos){
-        const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
-        const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${element}&limit=12`
-        const resp = await fetch(path);
-        const datos = await resp.json();
-        const url = datos.data[0].images.fixed_width.url
-        const title = element.title;
-        imgSug[i].setAttribute("src", `${url}`);
-        imgSug[i].setAttribute("alt", `${title}`);
-        titleSug[i].innerHTML = `#${element}`
-        i++;
-    }
-}
-getSug(); */
 
 // Funcionamiento botones "Ver Mas..." y boton "X"
 const sug = document.getElementById('sugerencias');

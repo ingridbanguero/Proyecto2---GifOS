@@ -261,6 +261,7 @@ body {
         padding: 8px 7px;
         border: 1px solid #4C2F99;
         box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+        outline: none;
     }
     
 }
@@ -374,6 +375,9 @@ body {
             border: 1px dotted $color-borde4;
             margin: 2px;
         }
+    }
+    .width{
+        width: 49%;
     }
 }
     // ----- ----- ----- ----- ----- VENTANA CREAR GUIFOS ----- ----- ----- ----- ----- 
