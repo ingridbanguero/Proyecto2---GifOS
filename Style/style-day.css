@@ -373,16 +373,29 @@ body {
 
 .contenedor_animacion {
   display: flex; }
-  .contenedor_animacion .rectangulo {
-    width: 12px;
+  .contenedor_animacion img {
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    margin-right: 6px;
+    background: #F7C9F3;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF; }
+  .contenedor_animacion .animacion {
+    display: flex;
     height: 20px;
-    border: 1px solid #CECCCC;
-    border-bottom: none;
-    border-top: none; }
-  .contenedor_animacion .activo {
-    background: #F7C9F3; }
-  .contenedor_animacion .inactivo {
-    background: #999999; }
+    padding: 2px;
+    background: #B4B4B4;
+    box-shadow: inset 2px 2px 0 0 #000000, inset -2px -2px 0 0 #FFFCFC; }
+    .contenedor_animacion .animacion .rectangulo {
+      width: 12px;
+      height: 20px;
+      border: 1px solid #CECCCC;
+      border-bottom: none;
+      border-top: none;
+      background: #999999; }
+    .contenedor_animacion .animacion .activo {
+      background: #F7C9F3; }
 
 .captura2 {
   width: 50%;

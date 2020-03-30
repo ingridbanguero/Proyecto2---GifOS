@@ -22,31 +22,28 @@ const sug3 = document.getElementById('sugerido3');
 const sugest = document.getElementsByClassName('sug');
 
 searchForm.addEventListener('keyup', ()=>{
-    q = searchInput.value;
-        console.log(q);
-        const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
-        const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=3`
-        fetch(path).then(function(res) {
-            return res.json()
-        }).then(function(json){
-            for (i=0; i<=2; i++){
-                console.log(json)
-                if(json.data[i] !== undefined){
-                    let title = json.data[i].title;
-                    let tag = '';
-                    let arrayTitle = title.split(" ");
-                    for (let i=0; i<=3; i++){
-                        if (arrayTitle[i] !== "GIF" && arrayTitle[i] !== "by" && arrayTitle[i] !== undefined){
-                            arrayTitle[i] = arrayTitle[i];
-                            tag += arrayTitle[i] + " "
-                        }
-                    } 
-                    console.log(tag)
-                    sugest[i].innerHTML = tag;
-                    sugest[i].value = tag;
-                }
-            };
-        })
+q = searchInput.value;
+    const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
+    const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=3`
+    fetch(path).then(function(res) {
+        return res.json()
+    }).then(function(json){
+        for (i=0; i<=2; i++){
+            if(json.data[i] !== undefined){
+                let title = json.data[i].title;
+                let tag = '';
+                let arrayTitle = title.split(" ");
+                for (let i=0; i<=3; i++){
+                    if (arrayTitle[i] !== "GIF" && arrayTitle[i] !== "by" && arrayTitle[i] !== undefined){
+                        arrayTitle[i] = arrayTitle[i];
+                        tag += arrayTitle[i] + " "
+                    }
+                } 
+                sugest[i].innerHTML = tag;
+                sugest[i].value = tag;
+            }
+        };
+    })
 })
 
 // Barra historial busquedas recientes

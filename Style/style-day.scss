@@ -470,20 +470,34 @@ padding: 2px;
 }
 .contenedor_animacion{
     display: flex;
-    
-    .rectangulo{
-        width: 12px;
+    img{
+        width: 10px;
+        height: 10px;;
+        padding: 5px;
+        margin-right: 6px;
+        background: $color-boton1;
+        border: 1px solid #110038;
+        box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    }
+    .animacion{
+        display: flex;
         height: 20px;
-        border: 1px solid #CECCCC;
-        border-bottom: none;
-        border-top: none;
+        padding: 2px;
+        background: #B4B4B4;
+        box-shadow: inset 2px 2px 0 0 #000000, inset -2px -2px 0 0 #FFFCFC;
+        .rectangulo{
+            width: 12px;
+            height: 20px;
+            border: 1px solid #CECCCC;
+            border-bottom: none;
+            border-top: none;
+            background: #999999;
+        }
+        .activo{
+            background: #F7C9F3;
+        }
     }
-    .activo{
-        background: #F7C9F3;
-    }
-    .inactivo{
-        background: #999999;
-    }
+    
 }
 .captura2{
 width: 50%;

@@ -40,6 +40,9 @@ if(misGifs !== null){
 let recorder; 
 let blob; 
 let urlGiphy;
+let timer;
+let minutos;
+let segundos;
 
 // Eventos de los botones
 btnComenzar.addEventListener('click', (e)=>{
@@ -59,31 +62,51 @@ btnComenzar.addEventListener('click', (e)=>{
             quality: 10,
             hidden: 240,
         });
-        console.log(recorder);
     })
 }); 
 
 btnCapturar.addEventListener('click', (e)=>{
     if(e.target.id !== "btnCapturar"){
-        console.log('Presionaste un boton y se empezara a grabar'); 
         opciones1.style.display="none";
         opciones2.style.display="flex";
         recorder.startRecording();
+        //Timer
+        segundos = 0;
+        minutos = 0;
+        timer = setInterval(()=>{
+            if(segundos < 60){
+                if(segundos <= 9){
+                    segundos = '0' + segundos;
+                }
+                document.getElementById('timer').innerHTML=`00:00:0${minutos}:${segundos}`;
+                segundos++;
+            }else{
+                minutos++;
+                segundos = 0;
+            }
+        },1000)
     }
 })
 
 btnListo.addEventListener('click', (e)=>{
     if(e.target.id !== "btnListo"){
-        console.log('Presionaste un boton y se va a guardar lo que grabaste'); 
         opciones2.style.display="none";
         opciones3.style.display="flex";
+        // Timer
+        clearInterval(timer);
+        if(segundos <=9){
+            segundos = '0' + segundos;
+        }
+        if(minutos <=6){
+            minutos = '0' + minutos;
+        }
+        document.getElementById('tiempo').innerHTML=`00:00:${minutos}:${segundos}`;
+        // Grabacion
         recorder.stopRecording(function() {
             video.style.display="none";
             image.style.display="block";
             blob = recorder.getBlob();
             image.src = URL.createObjectURL(blob);
-            console.log(blob);
-            console.log(recorder);
             
         })
     }
@@ -103,7 +126,6 @@ btnSubir.addEventListener('click', (e) =>{
     vista3.style.display="block";
     let form = new FormData();
     form.append('file', blob, 'GifRecorder.gif')
-    console.log(form.get('file'))
     const api_key = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF'
     const url = `http://upload.giphy.com/v1/gifs`
     form.append('api_key', api_key)
@@ -113,16 +135,11 @@ btnSubir.addEventListener('click', (e) =>{
         body: form,
     }).then(res=>res.json())
     .then(datar=>{
-        console.log(datar.data.id)
         let idgif = datar.data.id;
-        console.log(datar);
         let urlgif = `http://api.giphy.com/v1/gifs/${idgif}?api_key=${api_key}`
-        console.log(urlgif);
         fetch(urlgif).then(res => res.json())
             .then(json =>{
-            console.log(json);
             urlGiphy = json.data.url;
-            console.log(json.data.images.fixed_width.url);
             let urlImage = json.data.images.fixed_width.url;
             newGif.setAttribute('src', urlImage);
             vista3.style.display="none";
@@ -139,10 +156,9 @@ btnDescargar.addEventListener('click', ()=>{
 
 btnCopiar.addEventListener('click', ()=>{
     copiarPortapaleles();
-    console.log('Elemento copiado al portapales');
     
 })
-// Funcion para copiar el link al portapaleles
+// Funcion para copiar el link del gif al portapaleles
 function copiarPortapaleles(){
     let aux = document.createElement("input");
     aux.setAttribute('value', urlGiphy);
@@ -159,3 +175,16 @@ function añadirGif(urlImage){
     gifsEl.innerHTML += gifHTML;
     localStorage.setItem('gif', JSON.stringify(misGifs));
 }
+
+// Animacion de cuando se suben los gifs a la API
+let contadorRectangulos = 0;
+let rectangulos = document.querySelectorAll('.rectangulo');
+
+setInterval(()=>{
+    if(contadorRectangulos<rectangulos.length){
+        rectangulos.item(contadorRectangulos).classList.toggle('activo');
+        contadorRectangulos++;
+    }else{
+        contadorRectangulos = 0;
+    }
+},200);
