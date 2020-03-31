@@ -44,13 +44,12 @@ let timer;
 let minutos;
 let segundos;
 
-// Eventos de los botones
+// EVENTOS DE LOS BOTONES
 btnComenzar.addEventListener('click', (e)=>{
     vista1.style.display="none";
     vista2.style.display="block";
     video.style.display="block";
     image.style.display="none";
-    //Promesa
     navigator.mediaDevices.getUserMedia({
         video: true
     }).then(function(stream) {
@@ -158,6 +157,9 @@ btnCopiar.addEventListener('click', ()=>{
     copiarPortapaleles();
     
 })
+btnCerrar.addEventListener('click', ()=>{
+    vista4.style.display="none";
+})
 // Funcion para copiar el link del gif al portapaleles
 function copiarPortapaleles(){
     let aux = document.createElement("input");
@@ -187,4 +189,4 @@ setInterval(()=>{
     }else{
         contadorRectangulos = 0;
     }
-},200);
+},100);

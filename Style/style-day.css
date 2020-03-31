@@ -61,6 +61,8 @@ body {
   .menu .enlaces {
     display: flex;
     align-items: center; }
+    .menu .enlaces a:hover {
+      border: 1px dotted #110038; }
     .menu .enlaces .text {
       font-family: "Chakra Petch", sans-serif;
       text-decoration: none;
@@ -82,6 +84,8 @@ body {
       border: 1px solid #110038;
       box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
       outline: none; }
+      .menu .enlaces .select:hover {
+        border: 1px dotted #110038; }
     .menu .enlaces .icon {
       margin: 0;
       padding: 12px 12px;
@@ -105,11 +109,11 @@ body {
       .menu .enlaces .subtemas .day {
         margin-bottom: 0;
         color: #110038;
-        background: #FFFAFE;
+        background: #FFF4FD;
         border: 1px solid #CCA6C9;
         box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF; }
       .menu .enlaces .subtemas .night {
-        background: #CCA6C9;
+        background: #F0F0F0;
         color: #110038;
         border: 1px solid #808080;
         box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF; }
@@ -153,13 +157,25 @@ body {
       justify-content: space-evenly;
       align-items: center;
       font-size: 16px;
+      font-size: 16px;
+      background: #E6E6E6;
       color: #B4B4B4;
       letter-spacing: 0;
       line-height: 18px;
       width: 100px;
-      height: 36px; }
+      height: 36px;
+      outline: none;
+      border: 1px solid #808080;
+      box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF; }
       .buscador .contenedor_buscador button img {
         width: 18%; }
+      .buscador .contenedor_buscador button:active {
+        background-color: #E6BBE2;
+        color: #FFFFFF;
+        border: 1px dotted #110038; }
+      .buscador .contenedor_buscador button.input {
+        background-color: #F7C9F3;
+        color: #FFFFFF; }
   .buscador .busqueda {
     position: absolute;
     width: 87.2%;
@@ -182,6 +198,8 @@ body {
       outline: none; }
       .buscador .busqueda button:first-child {
         margin-top: 17px; }
+      .buscador .busqueda button:hover {
+        border: 1px dotted #110038; }
     .buscador .busqueda.active {
       display: flex; }
 
@@ -325,6 +343,8 @@ body {
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
     outline: none; }
+    .botones button:hover {
+      border: 1px dotted #110038; }
 
 .captura1 {
   width: 47vw;
@@ -390,10 +410,10 @@ body {
     .contenedor_animacion .animacion .rectangulo {
       width: 12px;
       height: 20px;
-      border: 1px solid #CECCCC;
+      border: 1px solid #999999;
       border-bottom: none;
       border-top: none;
-      background: #999999; }
+      background: #CECCCC; }
     .contenedor_animacion .animacion .activo {
       background: #F7C9F3; }
 
@@ -411,7 +431,7 @@ body {
     padding: 2px;
     margin: 11px auto 24px auto;
     background: #FFFFFF;
-    border: 1px solid #979797;
+    border: 1px solid #797979;
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000; }
     .captura2 .vistaPrevia img {
       margin: 0;
@@ -457,7 +477,7 @@ body {
   display: none;
   width: 60vw;
   background: #E6E6E6;
-  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #B4B4B4;
   margin-left: auto;
   margin-right: auto;
   padding: 2px; }
@@ -470,8 +490,8 @@ body {
     padding: 2px;
     margin: 11px auto 24px auto;
     background: #FFFFFF;
-    border: 1px solid #979797;
-    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    border: 1px solid #797979;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #000000;
     display: flex;
     flex-direction: column;
     align-items: center; }
@@ -503,8 +523,8 @@ body {
       width: 50%;
       height: 191px;
       background: #FFFFFF;
-      border: 1px solid #979797;
-      box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+      border: 1px solid #797979;
+      box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #000000;
       margin: 27px 27px 64px 27px; }
   .gifSubido .contenedor_content .subirGuifo {
     display: flex;

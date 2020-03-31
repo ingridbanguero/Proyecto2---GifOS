@@ -1,3 +1,4 @@
+// RECUPERACION DE LOS GIFS GUARDADOS EN EL LOCAL STORAGE
 const gifsEl = document.getElementById('misgifs');
 
 let gifsGuardados = localStorage.getItem('gif');
