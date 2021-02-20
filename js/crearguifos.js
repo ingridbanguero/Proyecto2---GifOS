@@ -126,7 +126,7 @@ btnSubir.addEventListener('click', (e) =>{
     let form = new FormData();
     form.append('file', blob, 'GifRecorder.gif')
     const api_key = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF'
-    const url = `http://upload.giphy.com/v1/gifs`
+    const url = `https://upload.giphy.com/v1/gifs`
     form.append('api_key', api_key)
 
     fetch(url,{
@@ -135,7 +135,7 @@ btnSubir.addEventListener('click', (e) =>{
     }).then(res=>res.json())
     .then(datar=>{
         let idgif = datar.data.id;
-        let urlgif = `http://api.giphy.com/v1/gifs/${idgif}?api_key=${api_key}`
+        let urlgif = `https://api.giphy.com/v1/gifs/${idgif}?api_key=${api_key}`
         fetch(urlgif).then(res => res.json())
             .then(json =>{
             urlGiphy = json.data.url;

@@ -36,7 +36,7 @@ searchForm.addEventListener('keyup', ()=>{
 q = searchInput.value;
     submit.classList.add('input');
     const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
-    const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=3`
+    const path = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=3`
     fetch(path).then(function(res) {
         return res.json()
     }).then(function(json){
@@ -98,7 +98,7 @@ function searchHistory(q){
 //  SECCION TENDENCIAS Y SU INTEGRACION CON EL BUSCADOR
 function search(q){
     const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
-    const path = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=12`
+    const path = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=12`
     fetch(path).then(function(res) {
         return res.json()
     }).then(function(json){
@@ -160,7 +160,7 @@ let i = 0;
 
 async function getSugerencias(){
     const apiKey = '60j6blu7K1BahTceUDM7FC8TRZ6QwbkF';
-    const path =`http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}`
+    const path =`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}`
     const resp = await fetch(path);
     const datos = await resp.json();
     for(i=0; i<=3; i++){
